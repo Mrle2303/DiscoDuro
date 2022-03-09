@@ -12,10 +12,12 @@ namespace Interfaces
 {
     public partial class FrmInicio : Form
     {
+
         public FrmInicio()
         {
             InitializeComponent();
-            Console.WriteLine("Holaaa");
+            string tamanio = txtTamaño.Text;
+            decimal Particion = numDuParticiones.Value;
         }
     }
 }
