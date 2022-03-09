@@ -19,5 +19,11 @@ namespace Interfaces
             string tamanio = txtTamaño.Text;
             decimal Particion = numDuParticiones.Value;
         }
+
+        private void btnEmpezar_Click(object sender, EventArgs e)
+        {
+            FrmTamanos frm = new FrmTamanos();
+            frm.Show();
+        }
     }
 }
