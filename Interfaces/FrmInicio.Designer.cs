@@ -1,6 +1,6 @@
 ﻿namespace Interfaces
 {
-    partial class Form1
+    partial class FrmInicio
     {
         /// <summary>
         /// Variable del diseñador necesaria.

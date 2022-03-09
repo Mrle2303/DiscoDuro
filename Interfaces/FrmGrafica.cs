@@ -10,12 +10,11 @@ using System.Windows.Forms;
 
 namespace Interfaces
 {
-    public partial class Form1 : Form
+    public partial class FrmGrafica : Form
     {
-        public Form1()
+        public FrmGrafica()
         {
             InitializeComponent();
-            Console.WriteLine("Holaaa");
         }
     }
 }
