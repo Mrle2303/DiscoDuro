@@ -15,6 +15,7 @@ namespace Interfaces
         public Form1()
         {
             InitializeComponent();
+            Console.WriteLine("Holaaa");
         }
     }
 }
