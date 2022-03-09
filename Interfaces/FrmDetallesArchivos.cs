@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Interfaces
 {
-    public partial class FrmGrafica : Form
+    public partial class FrmDetallesArchivos : Form
     {
-        public FrmGrafica()
+        public FrmDetallesArchivos()
         {
             InitializeComponent();
         }

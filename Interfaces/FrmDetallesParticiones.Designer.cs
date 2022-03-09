@@ -1,6 +1,6 @@
 ﻿namespace Interfaces
 {
-    partial class FrmTamanos
+    partial class FrmDetallesParticiones
     {
         /// <summary>
         /// Required designer variable.
