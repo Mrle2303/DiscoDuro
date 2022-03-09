@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Interfaces
 {
-    public partial class FrmTamanos : Form
+    public partial class FrmDetallesParticiones : Form
     {
-        public FrmTamanos()
+        public FrmDetallesParticiones()
         {
             InitializeComponent();
         }

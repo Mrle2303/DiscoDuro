@@ -1,6 +1,6 @@
 ﻿namespace Interfaces
 {
-    partial class FrmGrafica
+    partial class FrmDetallesArchivos
     {
         /// <summary>
         /// Required designer variable.
@@ -35,6 +35,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
@@ -82,11 +83,19 @@
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
             // 
+            // panel3
+            // 
+            this.panel3.Location = new System.Drawing.Point(252, 77);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(274, 237);
+            this.panel3.TabIndex = 2;
+            // 
             // FrmGrafica
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(525, 317);
+            this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
@@ -106,5 +115,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private System.Windows.Forms.Panel panel3;
     }
 }

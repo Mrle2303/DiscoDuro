@@ -22,7 +22,7 @@ namespace Interfaces
 
         private void btnEmpezar_Click(object sender, EventArgs e)
         {
-            FrmTamanos frm = new FrmTamanos();
+            FrmDetallesParticiones frm = new FrmDetallesParticiones();
             frm.Show();
         }
     }

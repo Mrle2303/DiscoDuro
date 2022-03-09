@@ -53,28 +53,28 @@
     <Compile Include="FrmInicio.Designer.cs">
       <DependentUpon>FrmInicio.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmGrafica.cs">
+    <Compile Include="FrmDetallesArchivos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmGrafica.Designer.cs">
-      <DependentUpon>FrmGrafica.cs</DependentUpon>
+    <Compile Include="FrmDetallesArchivos.Designer.cs">
+      <DependentUpon>FrmDetallesArchivos.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmTamanos.cs">
+    <Compile Include="FrmDetallesParticiones.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmTamanos.Designer.cs">
-      <DependentUpon>FrmTamanos.cs</DependentUpon>
+    <Compile Include="FrmDetallesParticiones.Designer.cs">
+      <DependentUpon>FrmDetallesParticiones.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FrmGrafica.resx">
-      <DependentUpon>FrmGrafica.cs</DependentUpon>
+    <EmbeddedResource Include="FrmDetallesArchivos.resx">
+      <DependentUpon>FrmDetallesArchivos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmInicio.resx">
       <DependentUpon>FrmInicio.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmTamanos.resx">
-      <DependentUpon>FrmTamanos.cs</DependentUpon>
+    <EmbeddedResource Include="FrmDetallesParticiones.resx">
+      <DependentUpon>FrmDetallesParticiones.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
