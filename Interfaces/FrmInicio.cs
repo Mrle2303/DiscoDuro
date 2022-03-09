@@ -17,7 +17,7 @@ namespace Interfaces
         {
             InitializeComponent();
             string tamanio = txtTamaño.Text;
-            decimal Particion = numDuParticiones.Value;
+            
         }
 
         private void btnEmpezar_Click(object sender, EventArgs e)

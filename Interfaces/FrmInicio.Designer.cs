@@ -30,11 +30,8 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.txtTamaño = new System.Windows.Forms.TextBox();
-            this.numDuParticiones = new System.Windows.Forms.NumericUpDown();
             this.btnEmpezar = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.numDuParticiones)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -59,17 +56,6 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Tamaño del disco duro";
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Constantia", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(82, 170);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(215, 23);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Numero de particiones";
-            // 
             // txtTamaño
             // 
             this.txtTamaño.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -78,32 +64,9 @@
             this.txtTamaño.Size = new System.Drawing.Size(119, 29);
             this.txtTamaño.TabIndex = 3;
             // 
-            // numDuParticiones
-            // 
-            this.numDuParticiones.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numDuParticiones.Location = new System.Drawing.Point(146, 205);
-            this.numDuParticiones.Maximum = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
-            this.numDuParticiones.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numDuParticiones.Name = "numDuParticiones";
-            this.numDuParticiones.Size = new System.Drawing.Size(95, 29);
-            this.numDuParticiones.TabIndex = 4;
-            this.numDuParticiones.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
             // btnEmpezar
             // 
-            this.btnEmpezar.Location = new System.Drawing.Point(302, 249);
+            this.btnEmpezar.Location = new System.Drawing.Point(269, 183);
             this.btnEmpezar.Name = "btnEmpezar";
             this.btnEmpezar.Size = new System.Drawing.Size(75, 23);
             this.btnEmpezar.TabIndex = 5;
@@ -117,16 +80,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Interfaces.Properties.Resources._32_325739_blue_technical_background_hd;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(392, 284);
+            this.ClientSize = new System.Drawing.Size(362, 217);
             this.Controls.Add(this.btnEmpezar);
-            this.Controls.Add(this.numDuParticiones);
             this.Controls.Add(this.txtTamaño);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "FrmInicio";
             this.Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)(this.numDuParticiones)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -136,9 +96,7 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtTamaño;
-        private System.Windows.Forms.NumericUpDown numDuParticiones;
         private System.Windows.Forms.Button btnEmpezar;
     }
 }
