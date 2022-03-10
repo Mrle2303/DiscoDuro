@@ -38,11 +38,11 @@
             this.btnAñadir = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.List1 = new System.Windows.Forms.ListBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.btnGuardar = new System.Windows.Forms.Button();
-            this.List1 = new System.Windows.Forms.ListBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -138,6 +138,14 @@
             this.panel2.Size = new System.Drawing.Size(378, 208);
             this.panel2.TabIndex = 0;
             // 
+            // List1
+            // 
+            this.List1.FormattingEnabled = true;
+            this.List1.Location = new System.Drawing.Point(3, 45);
+            this.List1.Name = "List1";
+            this.List1.Size = new System.Drawing.Size(180, 160);
+            this.List1.TabIndex = 4;
+            // 
             // panel3
             // 
             this.panel3.Controls.Add(this.label5);
@@ -175,20 +183,12 @@
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
-            // List1
-            // 
-            this.List1.FormattingEnabled = true;
-            this.List1.Location = new System.Drawing.Point(3, 45);
-            this.List1.Name = "List1";
-            this.List1.Size = new System.Drawing.Size(180, 160);
-            this.List1.TabIndex = 4;
-            // 
             // FrmDetallesParticiones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.ClientSize = new System.Drawing.Size(646, 276);
+            this.ClientSize = new System.Drawing.Size(650, 285);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.label4);

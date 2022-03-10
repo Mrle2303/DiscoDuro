@@ -34,14 +34,7 @@ namespace Logica_de_negocios
         {
             set => total = value; get=> total;
         }
-        public int Sumatoria
-        {
-            set => sumatoria = value; get => sumatoria;
-        }
-        public int Tamanios
-        {
-            set => tamanios = value; get => tamanios;
-        }
+       
 
         public bool agregarArchivo(Archivos archivo)
         {
@@ -54,10 +47,6 @@ namespace Logica_de_negocios
             return false;
         }
 
-        public void Espacios()
-        {
-            Sumatoria = Sumatoria + tamanio;
-            
-        }
+      
     }
 }
