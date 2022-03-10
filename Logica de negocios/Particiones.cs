@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 
 namespace Logica_de_negocios
 {
-     public class Particiones : Metodos
+    public class Particiones : Metodos
     {
         private string nombre;
-        private int tamanioTotal;
-        private int tamanioDisponible;
+        private int tamanio;
         private List<Archivos> archivos = new List<Archivos>();
         public string Nombre
         {
@@ -30,6 +29,12 @@ namespace Logica_de_negocios
                 tamanioDisponible = tamanioTotal;
             } get => tamanioDisponible;
         }
+        public int Total
+        {
+            set => total = value; get=> total;
+        }
+       
+
         public bool agregarArchivo(Archivos archivo)
         {
             if (archivo.Tamanio < this.tamanioDisponible)
@@ -40,5 +45,7 @@ namespace Logica_de_negocios
             }
             return false;
         }
+
+      
     }
 }
