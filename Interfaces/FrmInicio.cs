@@ -17,13 +17,12 @@ namespace Interfaces
         public FrmInicio()
         {
             InitializeComponent();
-            
         }
 
         private void btnEmpezar_Click(object sender, EventArgs e)
         {
-            
-            FrmDetallesParticiones frm = new FrmDetallesParticiones();
+            int tamanioDiscoDuro = int.Parse(txtTamaño.Text);
+            FrmDetallesParticiones frm = new FrmDetallesParticiones(tamanioDiscoDuro);
             frm.Show();
         }
     }

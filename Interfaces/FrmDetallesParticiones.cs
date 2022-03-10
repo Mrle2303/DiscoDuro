@@ -14,36 +14,32 @@ namespace Interfaces
 {
     public partial class FrmDetallesParticiones : Form
     {
-        
-        List<Particiones> listaParticiones;
-        public FrmDetallesParticiones()
-        {
-
-            string NombreParticion = TxtNombreP.Text;
-            
+        private int tamanioDiscoTotal;
+        private int tamanioDiscoDisponible;
+        private List<Particiones> listaParticiones;
+        private string nombre;
+        private int tamanio;
+        public FrmDetallesParticiones(int tamanioDiscoDuro)
+        {    
             InitializeComponent();
+            string NombreParticion = TxtNombreP.Text;
+            this.tamanioDiscoTotal = tamanioDiscoDuro;
+            this.tamanioDiscoDisponible = tamanioDiscoTotal;
             listaParticiones = new List<Particiones>();
             
-        }
-        private void btnGuardar_Click(object sender, EventArgs e)
-        {
-            Particiones particion = new Particiones();
-            //Debes recolectar los datos que el usuario pondra como el nombre y tamaño
-            particion.Nombre = TxtNombreP.Text;//nombre es lo que pondran en el text box
-            particion.Tamanio = int.Parse(TxtTamanioP.Text);//Igual que arriba
-            listaParticiones.Add(particion);
         }
 
         private void btnAñadir_Click(object sender, EventArgs e)
         {
-            List1.Items.Add(TxtNombreP);
-            List1.Items.Add(TxtTamanioP);
-             
-        }
-
-        private void FrmDetallesParticiones_Load(object sender, EventArgs e)
-        {
-
+            if (tamanio < tamanioDiscoDisponible)
+            {
+                tamanioDiscoDisponible -= tamanio;
+                Particiones particion = new Particiones();
+                //Debes recolectar los datos que el usuario pondra como el nombre y tamaño
+                particion.Nombre = TxtNombreP.Text;//nombre es lo que pondran en el text box
+                particion.Tamanio = int.Parse(TxtTamanioP.Text);//Igual que arriba
+                listaParticiones.Add(particion);
+            }
         }
     }
 }
