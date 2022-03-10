@@ -22,8 +22,7 @@ namespace Interfaces
 
         private void btnEmpezar_Click(object sender, EventArgs e)
         {
-            Particiones objEspacio = new Particiones();
-            objEspacio.Tamanios = int.Parse(txtTamaño.Text);
+            
             FrmDetallesParticiones frm = new FrmDetallesParticiones();
             frm.Show();
         }
