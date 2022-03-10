@@ -127,7 +127,6 @@
             this.label4.Size = new System.Drawing.Size(110, 13);
             this.label4.TabIndex = 4;
             this.label4.Text = "Particiones Existentes";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // panel2
             // 
@@ -198,7 +197,6 @@
             this.Controls.Add(this.panel1);
             this.Name = "FrmDetallesParticiones";
             this.Text = "FrmTamanos";
-            this.Load += new System.EventHandler(this.FrmDetallesParticiones_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);

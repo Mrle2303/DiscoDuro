@@ -14,26 +14,19 @@ namespace Interfaces
 {
     public partial class FrmDetallesParticiones : Form
     {
-        
+        List<Particiones> listaParticiones;
         public FrmDetallesParticiones()
         {
             InitializeComponent();
-            
+            listaParticiones = new List<Particiones>();
         }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void FrmDetallesParticiones_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-
+            Particiones particion = new Particiones();
+            //Debes recolectar los datos que el usuario pondra como el nombre y tamaño
+            particion.Nombre = nombre;//nombre es lo que pondran en el text box
+            particion.Tamanio = tamanio;//Igual que arriba
+            listaParticiones.Add(particion);
         }
     }
 }
