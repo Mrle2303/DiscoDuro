@@ -9,7 +9,8 @@ namespace Logica_de_negocios
      public class Particiones : Metodos
     {
         private string nombre;
-        private int tamanio;
+        private int tamanioTotal;
+        private int tamanioDisponible;
         private List<Archivos> archivos = new List<Archivos>();
         public string Nombre
         {
@@ -24,14 +25,17 @@ namespace Logica_de_negocios
         }
         public int Tamanio
         {
-            set => tamanio = value; get => tamanio;
+            set{
+                tamanioTotal = value;
+                tamanioDisponible = tamanioTotal;
+            } get => tamanioDisponible;
         }
         public bool agregarArchivo(Archivos archivo)
         {
-            if (archivo.Tamanio < this.tamanio)
+            if (archivo.Tamanio < this.tamanioDisponible)
             {
                 this.archivos.Add(archivo);
-                this.tamanio -= archivo.Tamanio;
+                this.tamanioDisponible -= archivo.Tamanio;
                 return true;
             }
             return false;
