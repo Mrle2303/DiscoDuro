@@ -40,5 +40,10 @@ namespace Interfaces
             List1.Items.Add(TxtTamanioP);
              
         }
+
+        private void FrmDetallesParticiones_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

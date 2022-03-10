@@ -197,6 +197,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "FrmDetallesParticiones";
             this.Text = "FrmTamanos";
+            this.Load += new System.EventHandler(this.FrmDetallesParticiones_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);

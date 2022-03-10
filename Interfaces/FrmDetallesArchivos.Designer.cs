@@ -271,6 +271,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "FrmDetallesArchivos";
             this.Text = "FrmGrafica";
+            this.Load += new System.EventHandler(this.FrmDetallesArchivos_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel3.ResumeLayout(false);

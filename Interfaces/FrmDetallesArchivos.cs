@@ -17,6 +17,9 @@ namespace Interfaces
             InitializeComponent();
         }
 
-        
+        private void FrmDetallesArchivos_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
