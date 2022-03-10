@@ -37,8 +37,8 @@ namespace Interfaces
                 tamanioDiscoDisponible -= tamanioParticion;//-- Disminuye el tamaño disponible respecto ala particion agregada
                 Particiones particion = new Particiones();//-- Guarda el nombre de la particion que añadira el usuario
                 //Debes recolectar los datos que el usuario pondra como el nombre y tamaño
-                particion.Nombre = TxtNombreP.Text;//nombre es lo que pondran en el text box
-                particion.Tamanio = int.Parse(TxtTamanioP.Text);//Igual que arriba
+                particion.Nombre = nombreParticion;//nombre es lo que pondran en el text box
+                particion.Tamanio = tamanioParticion;//Igual que arriba
                 listaParticiones.Add(particion);//-- Añadimos la particion a la lista
             }
         }
