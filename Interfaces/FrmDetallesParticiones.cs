@@ -14,32 +14,32 @@ namespace Interfaces
 {
     public partial class FrmDetallesParticiones : Form
     {
-        private int tamanioDiscoTotal;
-        private int tamanioDiscoDisponible;
-        private List<Particiones> listaParticiones;
-        private string nombre;
-        private int tamanio;
+        //----------------------- ATRIBUTOS ----------------------------
+        private int tamanioDiscoTotal;//Variable que guardara el tamaño total del DD
+        private int tamanioDiscoDisponible;//--Guardara el disponible que hay del DD
+        private List<Particiones> listaParticiones;//-- guardara cuantas y cuales particiones vamos creando
+        private string nombreParticion;//-- guardara el nombre de la particion que se va añadir
+        private int tamanioParticion;//-- guardara el tamaño de la particion que se va añadir
+        //----------------------- CONSTRUCTOR ---------------------------
         public FrmDetallesParticiones(int tamanioDiscoDuro)
         {    
             InitializeComponent();
-            string NombreParticion = TxtNombreP.Text;
-            this.tamanioDiscoTotal = tamanioDiscoDuro;
-            this.tamanioDiscoDisponible = tamanioDiscoTotal;
-            listaParticiones = new List<Particiones>();
-            
+            this.tamanioDiscoTotal = tamanioDiscoDuro;//-- Asignamos cual sera el tamaño total del disco
+            this.tamanioDiscoDisponible = tamanioDiscoTotal;//-- Al principio el espacion disponible es el mismo al de el total ya que aun no hay nada
+            listaParticiones = new List<Particiones>();//-- Se instancia el objeto de la lista donde estara las particiones
         }
-
-        private void btnAñadir_Click(object sender, EventArgs e)
+        //---------------------- METODOS -----------------------------------------------------
+        private void btnAñadir_Click(object sender, EventArgs e)//-- Metodo al hacer clic sobre el boton añadir
         {
-            
-            if (tamanio < tamanioDiscoDisponible)
+            tamanioParticion = int.Parse(TxtTamanioP.Text);//-- Guarda el tamaño de la particion que añadira el usuario
+            if (tamanioParticion < tamanioDiscoDisponible)//-- Verifica si hay espacio disponible en el DD para añadir particion
             {
-                tamanioDiscoDisponible -= tamanio;
-                Particiones particion = new Particiones();
+                tamanioDiscoDisponible -= tamanioParticion;//-- Disminuye el tamaño disponible respecto ala particion agregada
+                Particiones particion = new Particiones();//-- Guarda el nombre de la particion que añadira el usuario
                 //Debes recolectar los datos que el usuario pondra como el nombre y tamaño
                 particion.Nombre = TxtNombreP.Text;//nombre es lo que pondran en el text box
                 particion.Tamanio = int.Parse(TxtTamanioP.Text);//Igual que arriba
-                listaParticiones.Add(particion);
+                listaParticiones.Add(particion);//-- Añadimos la particion a la lista
             }
         }
     }
