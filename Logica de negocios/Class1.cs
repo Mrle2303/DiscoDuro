@@ -10,7 +10,7 @@ namespace Logica_de_negocios
     {
         public Class1()
         {
-            Console.WriteLine("hola");
+            Console.WriteLine("hola Dav3d23");
         }
     }
 }
