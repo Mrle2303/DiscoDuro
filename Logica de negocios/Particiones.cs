@@ -11,7 +11,8 @@ namespace Logica_de_negocios
         private string nombre;
         private int tamanio;
         private int total;
-       
+        private int sumatoria;
+        private int tamanios;
         
         private List<Archivos> archivos = new List<Archivos>();
         public string Nombre
