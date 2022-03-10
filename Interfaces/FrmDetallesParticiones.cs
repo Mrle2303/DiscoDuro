@@ -31,6 +31,7 @@ namespace Interfaces
 
         private void btnAñadir_Click(object sender, EventArgs e)
         {
+            
             if (tamanio < tamanioDiscoDisponible)
             {
                 tamanioDiscoDisponible -= tamanio;
