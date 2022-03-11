@@ -39,6 +39,20 @@ namespace Interfaces
             txtTamañoAr.Text = ""; //se limpia el textbox
         }
 
-        
+        private void txtTamañoAr_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if((e.KeyChar>= 32 && e.KeyChar<=47) || (e.KeyChar >= 58 && e.KeyChar <= 255))//valida que solo pueda introducir numeros
+                {
+                e.Handled = true;
+                }
+        }
+
+        private void txtNombreAr_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar > 47 && e.KeyChar < 58) //valida que solo pueda introducir texto
+            {
+                e.Handled = true;
+            }
+        }
     }
 }
