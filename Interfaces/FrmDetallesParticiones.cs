@@ -55,8 +55,8 @@ namespace Interfaces
         {
             //--Enviara los datos al formularioDetalleArchivos
             DataGridViewRow row = DgvInfoParticiones.Rows[e.RowIndex];//-- Obtiene que fila fue pulsada
-            nombreParticion = row.Cells[0].Value;
-            FrmDetallesArchivos frm = new FrmDetallesArchivos((row.Cells[0].Value));
+           nombreParticion = DgvInfoParticiones.Rows[DgvInfoParticiones.CurrentRow.Index].Cells[0].Value.ToString();
+            FrmDetallesArchivos frm = new FrmDetallesArchivos();
             frm.Show();
         }
 
