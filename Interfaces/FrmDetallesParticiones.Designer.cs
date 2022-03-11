@@ -144,7 +144,7 @@
             this.List1.Name = "List1";
             this.List1.Size = new System.Drawing.Size(180, 160);
             this.List1.TabIndex = 4;
-            // 
+           // 
             // panel3
             // 
             this.panel3.Controls.Add(this.label5);
