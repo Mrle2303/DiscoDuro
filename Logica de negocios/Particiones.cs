@@ -8,36 +8,46 @@ namespace Logica_de_negocios
 {
     public class Particiones : Metodos
     {
-        private string nombre;
-        private int tamanioDisponible, tamanioTotal;
-        private List<Archivos> archivos = new List<Archivos>();
-        public string Nombre
+        //------------------- ATRIBUTOS -------------------------------------------------
+        private string nombre;//-- guardara el nombre de la particion
+        private int tamanioDisponible, tamanioTotal;//-- guardara tamaño disponible y total sobre la particion
+        private List<Archivos> archivos = new List<Archivos>();//-- Se crea una lista donde se guardaran los archivos que estaran en la particion
+        //-------------------- CONSTRUCTOR --------------------------------------------
+        public Particiones(int tamanio, string nombre)//-- Al crearse una particion en el form se ejecutara esto primero - solo pide los valores con los que iniciara la particion
         {
-            set
+            this.Nombre = nombre;//-- se usa la propiedad de aqui abajo para añadir el valor al atributo
+            this.Tamanio = tamanio;//-- se usa la propiedad de aqui abajo para añadir el valor al atributo
+        }
+        //---------------------- PROPIEDADES -------------------------------------------------------
+        public string Nombre//-- Propiedad que asigna o devuelve un valor al nombre de la particion
+        {
+            set//-- para asignar
             {
-                if (IsLetters(value))
+                if (IsLetters(value))//-- verifica que sean puras letras
                 {
-                    nombre = value;
+                    nombre = value;//-- asignamos en valor mandado(sera el nombre de la particion que manda el form)
                 }
             }
-            get => nombre;
+            get => nombre;//-- para devolver nomas devuelve el nombre
         }
-        public int Tamanio
+        public int Tamanio//-- Propiedad que asigna o devuelve un valor al tamaño de la particion
         {
-            set{
-                tamanioTotal = value;
-                tamanioDisponible = tamanioTotal;
-            } get => tamanioDisponible;
+            set
+            {//-- para asignar
+                tamanioTotal = value;//-- asigna el valor que mandaran del form del tamaño de la particion
+                tamanioDisponible = tamanioTotal;//-- al crearse la particion tendra el total disponible
+            } get => tamanioDisponible;//-- para devolver nomas devuelve el tamaño disponible en la particion
         }
-        public bool agregarArchivo(Archivos archivo)
+        //------------------------ METODOS --------------------------------------------------------------
+        public bool agregarArchivo(Archivos archivo)//-- Metodo que ejecutaremos cuando queramos añadir archivo(es booleano regresa un valor para saber si se pudo completar)
         {
-            if (archivo.Tamanio < this.tamanioDisponible)
+            if (archivo.Tamanio < this.tamanioDisponible)//-- Verifica que el tamaño del archivo no supere al disponible
             {
-                this.archivos.Add(archivo);
-                this.tamanioDisponible -= archivo.Tamanio;
-                return true;
+                this.archivos.Add(archivo);//--Añadimos el archivo que mandaron a la lista donde los pondremos
+                this.tamanioDisponible -= archivo.Tamanio;//-- Disminuye el tamaño disponible respecto al del archivo
+                return true;//-- si se pudo añadir regresa verdadero
             }
-            return false;
+            return false;//-- si no se pudo regresa falso
         }
 
       
