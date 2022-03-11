@@ -141,11 +141,16 @@
             // DgvInfoParticiones
             // 
             this.DgvInfoParticiones.AllowUserToAddRows = false;
+            this.DgvInfoParticiones.AllowUserToDeleteRows = false;
+            this.DgvInfoParticiones.AllowUserToResizeColumns = false;
+            this.DgvInfoParticiones.AllowUserToResizeRows = false;
             this.DgvInfoParticiones.BackgroundColor = System.Drawing.Color.IndianRed;
             this.DgvInfoParticiones.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.DgvInfoParticiones.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.DgvInfoParticiones.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.Firebrick;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkSalmon;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
@@ -155,6 +160,7 @@
             this.DgvInfoParticiones.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.NombreP,
             this.TamañoP});
+            this.DgvInfoParticiones.Cursor = System.Windows.Forms.Cursors.Hand;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -163,9 +169,12 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.DgvInfoParticiones.DefaultCellStyle = dataGridViewCellStyle2;
+            this.DgvInfoParticiones.EnableHeadersVisualStyles = false;
             this.DgvInfoParticiones.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.DgvInfoParticiones.Location = new System.Drawing.Point(244, 29);
             this.DgvInfoParticiones.Name = "DgvInfoParticiones";
+            this.DgvInfoParticiones.ReadOnly = true;
+            this.DgvInfoParticiones.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.Firebrick;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -174,23 +183,30 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.DgvInfoParticiones.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.DgvInfoParticiones.RowHeadersVisible = false;
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.IndianRed;
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Malgun Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DarkRed;
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
             this.DgvInfoParticiones.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.DgvInfoParticiones.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.DgvInfoParticiones.Size = new System.Drawing.Size(243, 150);
             this.DgvInfoParticiones.TabIndex = 5;
+            this.DgvInfoParticiones.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvInfoParticiones_CellDoubleClick);
             // 
             // NombreP
             // 
             this.NombreP.HeaderText = "Nombre";
             this.NombreP.Name = "NombreP";
+            this.NombreP.ReadOnly = true;
+            this.NombreP.Width = 121;
             // 
             // TamañoP
             // 
             this.TamañoP.HeaderText = "Tamaño";
             this.TamañoP.Name = "TamañoP";
+            this.TamañoP.ReadOnly = true;
+            this.TamañoP.Width = 121;
             // 
             // btnBorar
             // 

@@ -51,14 +51,14 @@ namespace Interfaces
             }
         }
 
-        private void DgvInfoParticiones_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void DgvInfoParticiones_CellDoubleClick(object sender, DataGridViewCellEventArgs e)//--Enviara los datos al formularioDetalleArchivos
         {
-            //--Enviara los datos al formularioDetalleArchivos
-            DataGridViewRow row = DgvInfoParticiones.Rows[e.RowIndex];//-- Obtiene que fila fue pulsada
             nombreParticion = DgvInfoParticiones.Rows[DgvInfoParticiones.CurrentRow.Index].Cells[0].Value.ToString();
             Particiones particion = ObtenerParticion(nombreParticion);
-            FrmDetallesArchivos frm = new FrmDetallesArchivos(particion);
-            frm.Show();
+            Console.WriteLine(particion.Nombre);//---------- Linea de prueba
+
+            //FrmDetallesArchivos frm = new FrmDetallesArchivos(particion);
+            //frm.Show();
         }
 
         private Particiones ObtenerParticion(string nombre)//-- Metodo que me dira que aparticion es depediendo su nombre
