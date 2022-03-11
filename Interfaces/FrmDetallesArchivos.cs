@@ -30,20 +30,24 @@ namespace Interfaces
         private void btnAñadir_Click(object sender, EventArgs e)
         {
             DataRow row = archivos.NewRow(); //se crea el objeto row para que agregue filas
-
             nombreArch = txtNombreAr.Text;
             tamanioArch = int.Parse(txtTamañoAr.Text);
-
-
-            row["Nombre del archivo"] = nombreArch;//le establece la informacion a la fila tomandola de la variable con el valor del textBox
-            row["Tamaño del archivo"] = tamanioArch;//le establece la informacion a la fila tomandola del textbox
-
-            archivos.Rows.Add(row); //se van añadiendo las filas con los datos introducidos
-
+            Archivos archivo = new Archivos(nombreArch, tamanioArch);
+            if(archivo.Tamanio < particion.TamanioDisponible)
+            {
+                particion.AgregarArchivo(archivo);
+                row["Nombre del archivo"] = nombreArch;//le establece la informacion a la fila tomandola de la variable con el valor del textBox
+                row["Tamaño del archivo"] = tamanioArch;//le establece la informacion a la fila tomandola de la variable con el valor del textBox
+                archivos.Rows.Add(row); //se van añadiendo las filas con los datos introducidos
+            }
+          
             txtNombreAr.Text = ""; //se limpian el textbox
             txtTamañoAr.Text = ""; //se limpia el textbox
         }
 
-        
+        private void btnBorrar_Click(object sender, EventArgs e)
+        {
+            nombreArch = dgvArchivos.Rows[dgvArchivos.CurrentRow.Index].Cells[0].Value.ToString();
+        }
     }
 }

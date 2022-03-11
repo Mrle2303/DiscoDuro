@@ -43,6 +43,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.dgvArchivos = new System.Windows.Forms.DataGridView();
+            this.btnBorrar = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArchivos)).BeginInit();
@@ -214,12 +215,23 @@
             this.dgvArchivos.Size = new System.Drawing.Size(449, 136);
             this.dgvArchivos.TabIndex = 10;
             // 
+            // btnBorrar
+            // 
+            this.btnBorrar.Location = new System.Drawing.Point(386, 195);
+            this.btnBorrar.Name = "btnBorrar";
+            this.btnBorrar.Size = new System.Drawing.Size(75, 23);
+            this.btnBorrar.TabIndex = 11;
+            this.btnBorrar.Text = "Borrar";
+            this.btnBorrar.UseVisualStyleBackColor = true;
+            this.btnBorrar.Click += new System.EventHandler(this.btnBorrar_Click);
+            // 
             // FrmDetallesArchivos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Brown;
             this.ClientSize = new System.Drawing.Size(473, 390);
+            this.Controls.Add(this.btnBorrar);
             this.Controls.Add(this.dgvArchivos);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.label7);
@@ -253,5 +265,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.DataGridView dgvArchivos;
+        private System.Windows.Forms.Button btnBorrar;
     }
 }
