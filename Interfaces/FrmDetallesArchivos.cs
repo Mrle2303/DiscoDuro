@@ -13,7 +13,8 @@ namespace Interfaces
 {
     public partial class FrmDetallesArchivos : Form
     {
-        
+        private string nombreArch;
+        private int tamanioArch;
         private DataTable archivos;
         private Particiones particion;
         public FrmDetallesArchivos(Particiones particion)
@@ -30,8 +31,12 @@ namespace Interfaces
         {
             DataRow row = archivos.NewRow(); //se crea el objeto row para que agregue filas
 
-            row["Nombre del archivo"] = txtNombreAr.Text;//le establece la informacion a la fila tomandola del textbox
-            row["Tamaño del archivo"] = txtTamañoAr.Text;//le establece la informacion a la fila tomandola del textbox
+            nombreArch = txtNombreAr.Text;
+            tamanioArch = int.Parse(txtTamañoAr.Text);
+
+
+            row["Nombre del archivo"] = nombreArch;//le establece la informacion a la fila tomandola de la variable con el valor del textBox
+            row["Tamaño del archivo"] = tamanioArch;//le establece la informacion a la fila tomandola del textbox
 
             archivos.Rows.Add(row); //se van añadiendo las filas con los datos introducidos
 
@@ -39,6 +44,20 @@ namespace Interfaces
             txtTamañoAr.Text = ""; //se limpia el textbox
         }
 
-        
+        private void txtTamañoAr_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if((e.KeyChar>= 32 && e.KeyChar<=47) || (e.KeyChar >= 58 && e.KeyChar <= 255))//valida que solo pueda introducir numeros
+                {
+                e.Handled = true;
+                }
+        }
+
+        private void txtNombreAr_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar > 47 && e.KeyChar < 58) //valida que solo pueda introducir texto
+            {
+                e.Handled = true;
+            }
+        }
     }
 }
