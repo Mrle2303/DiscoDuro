@@ -47,9 +47,17 @@ namespace Logica_de_negocios
             }
             return null;//--- EN caso de que no devuelva un nulo
         }
-        public void BorrarParticiones(string nombre)
+        public bool BorrarParticiones(string nombre)//-- Metodo para  borrar las particiones
         {
-
+            for (int i = 0; i < listaParticiones.Count; i++)//-- da vueltas hasta que se acabe la lista
+            {
+                if (listaParticiones[i].Nombre == nombre)//-- revisa si el nombre esta en la lista
+                {
+                    listaParticiones.RemoveAt(i);
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }
