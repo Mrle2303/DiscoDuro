@@ -76,5 +76,10 @@ namespace Interfaces
         {
             DgvInfoParticiones.Rows.Remove(DgvInfoParticiones.CurrentRow);//--Su funcion es para la particion que este seleccionada elimine completamente la columna
         }
+
+        private void FrmDetallesParticiones_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

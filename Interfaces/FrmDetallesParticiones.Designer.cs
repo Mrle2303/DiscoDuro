@@ -233,6 +233,7 @@
             this.Name = "FrmDetallesParticiones";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FrmTamanos";
+            this.Load += new System.EventHandler(this.FrmDetallesParticiones_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvInfoParticiones)).EndInit();
