@@ -182,9 +182,12 @@
             // 
             this.dgvArchivos.AllowUserToAddRows = false;
             this.dgvArchivos.AllowUserToDeleteRows = false;
+            this.dgvArchivos.AllowUserToResizeColumns = false;
+            this.dgvArchivos.AllowUserToResizeRows = false;
             this.dgvArchivos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvArchivos.BackgroundColor = System.Drawing.Color.IndianRed;
-            this.dgvArchivos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dgvArchivos.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvArchivos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.Firebrick;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Malgun Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -194,6 +197,8 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvArchivos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvArchivos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvArchivos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dgvArchivos.EnableHeadersVisualStyles = false;
             this.dgvArchivos.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.dgvArchivos.Location = new System.Drawing.Point(12, 226);
             this.dgvArchivos.Name = "dgvArchivos";
@@ -204,6 +209,7 @@
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DarkRed;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
             this.dgvArchivos.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvArchivos.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvArchivos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvArchivos.Size = new System.Drawing.Size(449, 136);
             this.dgvArchivos.TabIndex = 10;
