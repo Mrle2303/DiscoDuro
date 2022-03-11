@@ -39,7 +39,7 @@ namespace Logica_de_negocios
             } get => tamanioDisponible;//-- para devolver nomas devuelve el tamaño disponible en la particion
         }
         //------------------------ METODOS --------------------------------------------------------------
-        public bool agregarArchivo(Archivos archivo)//-- Metodo que ejecutaremos cuando queramos añadir archivo(es booleano regresa un valor para saber si se pudo completar)
+        public bool AgregarArchivo(Archivos archivo)//-- Metodo que ejecutaremos cuando queramos añadir archivo(es booleano regresa un valor para saber si se pudo completar)
         {
             if (archivo.Tamanio < this.tamanioDisponible)//-- Verifica que el tamaño del archivo no supere al disponible
             {
@@ -48,6 +48,19 @@ namespace Logica_de_negocios
                 return true;//-- si se pudo añadir regresa verdadero
             }
             return false;//-- si no se pudo regresa falso
+        }
+        public bool EliminarArchivo(Archivos archivo)//-- Es metodo lo ejecutaras cuando quieras elimanar un archivo dentro de la particion
+        {
+            if (this.archivos.Contains(archivo))//-- Revisa si el valor esta en la lista
+            {
+                this.archivos.Remove(archivo);//-- si estaba solo lo quita
+                return true;//-- resgresa verdadero indicando que se elimino con exito
+            }
+            return false;//-- regreso falso en caso de que no se elimino
+        }
+        public List<Archivos> ObtenerListaDeArchivos()//-- Este metodo regresa la lista de archivos que tiene esta particion
+        {
+            return archivos;
         }
 
       
