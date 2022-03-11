@@ -11,6 +11,11 @@ namespace Logica_de_negocios
         private string nombre;
         private int tamanio;
 
+        public Archivos(string nombre, int tamanio)
+        {
+            this.nombre = nombre;
+            this.tamanio = tamanio;
+        }
         public string Nombre
         {
             set

@@ -13,7 +13,8 @@ namespace Interfaces
 {
     public partial class FrmDetallesArchivos : Form
     {
-        
+        private string nombreArch;
+        private int tamanioArch;
         private DataTable archivos;
         private Particiones particion;
         public FrmDetallesArchivos(Particiones particion)
@@ -30,8 +31,12 @@ namespace Interfaces
         {
             DataRow row = archivos.NewRow(); //se crea el objeto row para que agregue filas
 
-            row["Nombre del archivo"] = txtNombreAr.Text;//le establece la informacion a la fila tomandola del textbox
-            row["Tamaño del archivo"] = txtTamañoAr.Text;//le establece la informacion a la fila tomandola del textbox
+            nombreArch = txtNombreAr.Text;
+            tamanioArch = int.Parse(txtTamañoAr.Text);
+
+
+            row["Nombre del archivo"] = nombreArch;//le establece la informacion a la fila tomandola de la variable con el valor del textBox
+            row["Tamaño del archivo"] = tamanioArch;//le establece la informacion a la fila tomandola del textbox
 
             archivos.Rows.Add(row); //se van añadiendo las filas con los datos introducidos
 
