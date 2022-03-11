@@ -45,6 +45,9 @@ namespace Interfaces
             txtTamañoAr.Text = ""; //se limpia el textbox
         }
 
-        
+        private void btnBorrar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
