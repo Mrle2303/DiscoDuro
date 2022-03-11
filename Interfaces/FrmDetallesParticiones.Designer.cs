@@ -190,6 +190,7 @@
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
             this.DgvInfoParticiones.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.DgvInfoParticiones.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.DgvInfoParticiones.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DgvInfoParticiones.Size = new System.Drawing.Size(243, 150);
             this.DgvInfoParticiones.TabIndex = 5;
             this.DgvInfoParticiones.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvInfoParticiones_CellDoubleClick);
