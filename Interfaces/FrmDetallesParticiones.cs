@@ -14,32 +14,60 @@ namespace Interfaces
 {
     public partial class FrmDetallesParticiones : Form
     {
-        private int tamanioDiscoTotal;
-        private int tamanioDiscoDisponible;
-        private List<Particiones> listaParticiones;
-        private string nombre;
-        private int tamanio;
+        DiscoDuro disco;
+        private string nombreParticion;//-- guardara el nombre de la particion que se va añadir
+        private int tamanioParticion;//-- guardara el tamaño de la particion que se va añadir
+        //----------------------- CONSTRUCTOR ---------------------------
         public FrmDetallesParticiones(int tamanioDiscoDuro)
-        {    
+        {
             InitializeComponent();
-            string NombreParticion = TxtNombreP.Text;
-            this.tamanioDiscoTotal = tamanioDiscoDuro;
-            this.tamanioDiscoDisponible = tamanioDiscoTotal;
-            listaParticiones = new List<Particiones>();
-            
+            disco = new DiscoDuro(tamanioDiscoDuro);
+        }
+        //---------------------- METODOS -----------------------------------------------------
+        private void btnAñadir_Click(object sender, EventArgs e)//-- Metodo al hacer clic sobre el boton añadir
+        {
+            tamanioParticion = int.Parse(TxtTamanioP.Text);//-- Guarda el tamaño de la particion que añadira el usuario
+            if (tamanioParticion <= disco.TamanioDiscoDisponible && tamanioParticion > 0)//-- Verifica si hay espacio disponible en el DD para añadir particion
+            {
+                nombreParticion = TxtNombreP.Text;
+                Particiones particion = new Particiones(tamanioParticion, nombreParticion);//-- Creamos la particion y por medio del constructor pasamos la info
+                disco.AsignarParticion(particion);//-- Añadimos la particion a la lista
+                int n = DgvInfoParticiones.Rows.Add();//--Se adicionan nuevo renglones y cuento en cual voy
+                DgvInfoParticiones.Rows[n].Cells[0].Value = particion.Nombre;//--Coloca la informacion de la particion
+                DgvInfoParticiones.Rows[n].Cells[1].Value = particion.Tamanio+" MB";//Coloca la informacion del tamaño
+                LimpiarTexto();
+            }
+            else//-- en caso de que el archivo no quepa
+            {
+                MessageBox.Show("No hay suficiente espacio\npara añadir la particion");
+                LimpiarTexto();
+            }
+        }
+        private void LimpiarTexto()//----- Para limpiar los textos
+        {
+            TxtNombreP.Text = "";//--Limpia los text
+            TxtTamanioP.Text = "";//--Limpia los text
         }
 
-        private void btnAñadir_Click(object sender, EventArgs e)
+        private void DgvInfoParticiones_CellDoubleClick(object sender, DataGridViewCellEventArgs e)//--Enviara los datos al formularioDetalleArchivos
         {
-            if (tamanio < tamanioDiscoDisponible)
-            {
-                tamanioDiscoDisponible -= tamanio;
-                Particiones particion = new Particiones();
-                //Debes recolectar los datos que el usuario pondra como el nombre y tamaño
-                particion.Nombre = TxtNombreP.Text;//nombre es lo que pondran en el text box
-                particion.Tamanio = int.Parse(TxtTamanioP.Text);//Igual que arriba
-                listaParticiones.Add(particion);
-            }
+            nombreParticion = DgvInfoParticiones.Rows[DgvInfoParticiones.CurrentRow.Index].Cells[0].Value.ToString();
+            Particiones particion = disco.ObtenerParticion(nombreParticion);
+            Console.WriteLine(particion.Nombre);//---------- Linea de prueba
+
+            FrmDetallesArchivos frm = new FrmDetallesArchivos(particion);
+            frm.Show();
+        }
+        private void btnBorar_Click(object sender, EventArgs e)
+        {
+            DgvInfoParticiones.Rows.Remove(DgvInfoParticiones.CurrentRow);//--Su funcion es para la particion que este seleccionada elimine completamente la columna
+            nombreParticion = DgvInfoParticiones.Rows[DgvInfoParticiones.CurrentRow.Index].Cells[0].Value.ToString();
+            disco.BorrarParticiones(nombreParticion);
+        }
+
+        private void FrmDetallesParticiones_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
