@@ -52,15 +52,17 @@ namespace Logica_de_negocios
             }
             return false;//-- si no se pudo regresa falso
         }
-        public bool EliminarArchivo(Archivos archivo)//-- Es metodo lo ejecutaras cuando quieras elimanar un archivo dentro de la particion
+        public bool EliminarArchivo(string nombreArchivo)//-- Es metodo lo ejecutaras cuando quieras elimanar un archivo dentro de la particion
         {
-            if (this.listaArchivos.Contains(archivo))//-- Revisa si el valor esta en la lista
+            for (int i = 0; i < listaArchivos.Count; i++)
             {
-                this.tamanioDisponible += archivo.Tamanio;
-                return this.listaArchivos.Remove(archivo);//-- si estaba solo lo quita
-                //-- resgresa verdadero indicando que se elimino con exito
+                if (listaArchivos[i].Nombre == nombreArchivo)
+                {
+                    listaArchivos.RemoveAt(i);
+                    return true;
+                }   
             }
-            return false;//-- regreso falso en caso de que no se elimino
+            return false;
         }
         public List<Archivos> ObtenerListaDeArchivos()//-- Este metodo regresa la lista de archivos que tiene esta particion
         {

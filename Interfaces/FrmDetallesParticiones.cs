@@ -60,8 +60,8 @@ namespace Interfaces
         }
         private void btnBorar_Click(object sender, EventArgs e)
         {
-            DgvInfoParticiones.Rows.Remove(DgvInfoParticiones.CurrentRow);//--Su funcion es para la particion que este seleccionada elimine completamente la columna
             nombreParticion = DgvInfoParticiones.Rows[DgvInfoParticiones.CurrentRow.Index].Cells[0].Value.ToString();
+            DgvInfoParticiones.Rows.Remove(DgvInfoParticiones.CurrentRow);//--Su funcion es para la particion que este seleccionada elimine completamente la columna
             disco.BorrarParticiones(nombreParticion);
         }
 
