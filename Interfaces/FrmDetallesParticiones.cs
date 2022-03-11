@@ -15,7 +15,7 @@ namespace Interfaces
     public partial class FrmDetallesParticiones : Form
     {
         //----------------------- ATRIBUTOS ----------------------------
-        private int n = 0;//--Guardara lo que se selecciona y podamos eliminarlo por medio del boton
+       
         private int tamanioDiscoTotal;//--Variable que guardara el tamaño total del DD
         private int tamanioDiscoDisponible;//--Guardara el disponible que hay del DD
         private List<Particiones> listaParticiones;//-- guardara cuantas y cuales particiones vamos creando
