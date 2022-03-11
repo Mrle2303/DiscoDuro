@@ -11,7 +11,7 @@ namespace Logica_de_negocios
         //------------------- ATRIBUTOS -------------------------------------------------
         private string nombre;//-- guardara el nombre de la particion
         private int tamanioDisponible, tamanioTotal;//-- guardara tamaño disponible y total sobre la particion
-        private List<Archivos> archivos = new List<Archivos>();//-- Se crea una lista donde se guardaran los archivos que estaran en la particion
+        private List<Archivos> listaArchivos = new List<Archivos>();//-- Se crea una lista donde se guardaran los archivos que estaran en la particion
         //-------------------- CONSTRUCTOR --------------------------------------------
         public Particiones(int tamanio, string nombre)//-- Al crearse una particion en el form se ejecutara esto primero - solo pide los valores con los que iniciara la particion
         {
@@ -44,9 +44,9 @@ namespace Logica_de_negocios
         //------------------------ METODOS --------------------------------------------------------------
         public bool AgregarArchivo(Archivos archivo)//-- Metodo que ejecutaremos cuando queramos añadir archivo(es booleano regresa un valor para saber si se pudo completar)
         {
-            if (archivo.Tamanio < this.TamanioDisponible)//-- Verifica que el tamaño del archivo no supere al disponible
+            if (archivo.Tamanio <= this.TamanioDisponible)//-- Verifica que el tamaño del archivo no supere al disponible
             {
-                this.archivos.Add(archivo);//--Añadimos el archivo que mandaron a la lista donde los pondremos
+                this.listaArchivos.Add(archivo);//--Añadimos el archivo que mandaron a la lista donde los pondremos
                 this.tamanioDisponible -= archivo.Tamanio;//-- Disminuye el tamaño disponible respecto al del archivo
                 return true;//-- si se pudo añadir regresa verdadero
             }
@@ -54,16 +54,17 @@ namespace Logica_de_negocios
         }
         public bool EliminarArchivo(Archivos archivo)//-- Es metodo lo ejecutaras cuando quieras elimanar un archivo dentro de la particion
         {
-            if (this.archivos.Contains(archivo))//-- Revisa si el valor esta en la lista
+            if (this.listaArchivos.Contains(archivo))//-- Revisa si el valor esta en la lista
             {
-                this.archivos.Remove(archivo);//-- si estaba solo lo quita
-                return true;//-- resgresa verdadero indicando que se elimino con exito
+                this.tamanioDisponible += archivo.Tamanio;
+                return this.listaArchivos.Remove(archivo);//-- si estaba solo lo quita
+                //-- resgresa verdadero indicando que se elimino con exito
             }
             return false;//-- regreso falso en caso de que no se elimino
         }
         public List<Archivos> ObtenerListaDeArchivos()//-- Este metodo regresa la lista de archivos que tiene esta particion
         {
-            return archivos;
+            return listaArchivos;
         }
 
       
