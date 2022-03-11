@@ -75,7 +75,6 @@ namespace Interfaces
         private void btnBorar_Click(object sender, EventArgs e)
         {
             //--Su funcion es para la particion que este seleccionada elimine completamente la columna
-            DgvInfoParticiones.ClearSelection();
             
         }
     }
