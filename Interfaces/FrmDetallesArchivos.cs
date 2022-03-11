@@ -28,7 +28,7 @@ namespace Interfaces
         }
         private void btnAñadir_Click(object sender, EventArgs e)
         {
-            DataRow row = archivos.NewRow(); //se crea el objeto row
+            DataRow row = archivos.NewRow(); //se crea el objeto row para que agregue filas
 
             row["Nombre del archivo"] = txtNombreAr.Text;//le establece la informacion a la fila tomandola del textbox
             row["Tamaño del archivo"] = txtTamañoAr.Text;//le establece la informacion a la fila tomandola del textbox
