@@ -45,9 +45,6 @@ namespace Interfaces
             txtTamañoAr.Text = ""; //se limpia el textbox
         }
 
-        private void btnBorrar_Click(object sender, EventArgs e)
-        {
-            nombreArch = dgvArchivos.Rows[dgvArchivos.CurrentRow.Index].Cells[0].Value.ToString();
-        }
+        
     }
 }
