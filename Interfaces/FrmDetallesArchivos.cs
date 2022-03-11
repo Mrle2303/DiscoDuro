@@ -30,10 +30,10 @@ namespace Interfaces
         private void btnAñadir_Click(object sender, EventArgs e)
         {
             DataRow row = archivos.NewRow(); //se crea el objeto row para que agregue filas
-            nombreArch = txtNombreAr.Text;
+            nombreArch = txtNombreAr.Text;//Se guarda el nombre del archivo obtenido del text box
             tamanioArch = int.Parse(txtTamañoAr.Text);
-            Archivos archivo = new Archivos(nombreArch, tamanioArch);
-            if(archivo.Tamanio < particion.TamanioDisponible)
+            Archivos archivo = new Archivos(nombreArch, tamanioArch);//se crea el objeto de la clase archivos
+            if(archivo.Tamanio < particion.TamanioDisponible)//Evaluar que el tamaño del archivo sea menos que el de la particion
             {
                 particion.AgregarArchivo(archivo);
                 row["Nombre del archivo"] = nombreArch;//le establece la informacion a la fila tomandola de la variable con el valor del textBox
@@ -47,7 +47,8 @@ namespace Interfaces
 
         private void btnBorrar_Click(object sender, EventArgs e)
         {
-
+            nombreArch = dgvArchivos.Rows[dgvArchivos.CurrentRow.Index].Cells[0].Value.ToString();//Se obtiene el nombre del archivo
+            particion.EliminarArchivo(nombreArch);//Se elimina el archivo de la particion
         }
     }
 }
