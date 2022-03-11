@@ -36,12 +36,15 @@ namespace Logica_de_negocios
             {//-- para asignar
                 tamanioTotal = value;//-- asigna el valor que mandaran del form del tamaño de la particion
                 tamanioDisponible = tamanioTotal;//-- al crearse la particion tendra el total disponible
-            } get => tamanioDisponible;//-- para devolver nomas devuelve el tamaño disponible en la particion
+            } get => tamanioTotal;//-- para devolver nomas devuelve el tamaño disponible en la particion
         }
+
+        public int TamanioDisponible { get => tamanioDisponible;}
+
         //------------------------ METODOS --------------------------------------------------------------
         public bool AgregarArchivo(Archivos archivo)//-- Metodo que ejecutaremos cuando queramos añadir archivo(es booleano regresa un valor para saber si se pudo completar)
         {
-            if (archivo.Tamanio < this.tamanioDisponible)//-- Verifica que el tamaño del archivo no supere al disponible
+            if (archivo.Tamanio < this.TamanioDisponible)//-- Verifica que el tamaño del archivo no supere al disponible
             {
                 this.archivos.Add(archivo);//--Añadimos el archivo que mandaron a la lista donde los pondremos
                 this.tamanioDisponible -= archivo.Tamanio;//-- Disminuye el tamaño disponible respecto al del archivo

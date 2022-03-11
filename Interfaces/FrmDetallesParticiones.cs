@@ -32,31 +32,32 @@ namespace Interfaces
         //---------------------- METODOS -----------------------------------------------------
         private void btnAñadir_Click(object sender, EventArgs e)//-- Metodo al hacer clic sobre el boton añadir
         {
-            
-            int n = DgvInfoParticiones.Rows.Add();//--Se adicionan nuevo renglones
-            DgvInfoParticiones.Rows[n].Cells[0].Value = TxtNombreP.Text;//--Coloca la informacion de la particion
-            DgvInfoParticiones.Rows[n].Cells[1].Value = TxtTamanioP.Text;//Coloca la informacion del tamaño
-            TxtNombreP.Text = "";//--Limpia los text
-            TxtTamanioP.Text = "";//--Limpia los text
             tamanioParticion = int.Parse(TxtTamanioP.Text);//-- Guarda el tamaño de la particion que añadira el usuario
-            if (tamanioParticion < tamanioDiscoDisponible)//-- Verifica si hay espacio disponible en el DD para añadir particion
+            if (tamanioParticion <= tamanioDiscoDisponible && tamanioParticion > 0)//-- Verifica si hay espacio disponible en el DD para añadir particion
             {
-                tamanioDiscoDisponible -= tamanioParticion;//-- Disminuye el tamaño disponible respecto ala particion agregada
-                Particiones particion = new Particiones();//-- Guarda el nombre de la particion que añadira el usuario
-                //Debes recolectar los datos que el usuario pondra como el nombre y tamaño
-                particion.Nombre = nombreParticion;//nombre es lo que pondran en el text box
-                particion.Tamanio = tamanioParticion;//Igual que arriba
+                nombreParticion = TxtNombreP.Text;
+                Particiones particion = new Particiones(tamanioParticion, nombreParticion);//-- Creamos la particion y por medio del constructor pasamos la info
                 listaParticiones.Add(particion);//-- Añadimos la particion a la lista
+                int n = DgvInfoParticiones.Rows.Add();//--Se adicionan nuevo renglones y cuento en cual voy
+                DgvInfoParticiones.Rows[n].Cells[0].Value = particion.Nombre;//--Coloca la informacion de la particion
+                DgvInfoParticiones.Rows[n].Cells[1].Value = particion.Tamanio;//Coloca la informacion del tamaño
+                TxtNombreP.Text = "";//--Limpia los text
+                TxtTamanioP.Text = "";//--Limpia los text
+                tamanioDiscoDisponible -= tamanioParticion;//-- Disminuye el tamaño disponible respecto ala particion agregada
+            }
+            else//-- en caso de que el archivo no quepa
+            {
+                MessageBox.Show("No hay suficiente espacio\npara añadir la particion");
             }
         }
 
         private void DgvInfoParticiones_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             //--Enviara los datos al formularioDetalleArchivos
-            /***********
-           /* DataGridViewRow row = DgvInfoParticiones.Rows[e.RowIndex];
+            DataGridViewRow row = DgvInfoParticiones.Rows[e.RowIndex];//-- Obtiene que fila fue pulsada
+            nombreParticion = row.Cells[0].Value;
             FrmDetallesArchivos frm = new FrmDetallesArchivos((row.Cells[0].Value));
-            frm.Show();*/
+            frm.Show();
         }
 
         private void btnBorar_Click(object sender, EventArgs e)
