@@ -57,8 +57,8 @@ namespace Interfaces
             Particiones particion = ObtenerParticion(nombreParticion);
             Console.WriteLine(particion.Nombre);//---------- Linea de prueba
 
-            //FrmDetallesArchivos frm = new FrmDetallesArchivos(particion);
-            //frm.Show();
+            FrmDetallesArchivos frm = new FrmDetallesArchivos(particion);
+            frm.Show();
         }
 
         private Particiones ObtenerParticion(string nombre)//-- Metodo que me dira que aparticion es depediendo su nombre
