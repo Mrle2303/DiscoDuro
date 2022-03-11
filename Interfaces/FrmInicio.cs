@@ -21,9 +21,18 @@ namespace Interfaces
 
         private void btnEmpezar_Click(object sender, EventArgs e)
         {
+
             int tamanioDiscoDuro = int.Parse(txtTamaño.Text);
             FrmDetallesParticiones frm = new FrmDetallesParticiones(tamanioDiscoDuro);
             frm.Show();
+        }
+
+        private void txtTamaño_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if((e.KeyChar >= 32 && e.KeyChar <= 47) || (e.KeyChar >= 58 && e.KeyChar <=255))//--Validacion para solo insertar numeros
+            {
+               e.Handled = true;
+            }
         }
     }
 }

@@ -32,6 +32,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtTamaño = new System.Windows.Forms.TextBox();
             this.btnEmpezar = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -65,6 +66,7 @@
             this.txtTamaño.Name = "txtTamaño";
             this.txtTamaño.Size = new System.Drawing.Size(119, 29);
             this.txtTamaño.TabIndex = 3;
+            this.txtTamaño.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTamaño_KeyPress);
             // 
             // btnEmpezar
             // 
@@ -76,6 +78,16 @@
             this.btnEmpezar.UseVisualStyleBackColor = true;
             this.btnEmpezar.Click += new System.EventHandler(this.btnEmpezar_Click);
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(251, 122);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(23, 13);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "MB";
+            // 
             // FrmInicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -83,6 +95,7 @@
             this.BackColor = System.Drawing.Color.Brown;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(362, 217);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.btnEmpezar);
             this.Controls.Add(this.txtTamaño);
             this.Controls.Add(this.label2);
@@ -100,6 +113,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtTamaño;
         private System.Windows.Forms.Button btnEmpezar;
+        private System.Windows.Forms.Label label3;
     }
 }
 
