@@ -23,7 +23,7 @@ namespace Interfaces
         private int tamanioParticion;//-- guardara el tamaño de la particion que se va añadir
         //----------------------- CONSTRUCTOR ---------------------------
         public FrmDetallesParticiones(int tamanioDiscoDuro)
-        {    
+        {
             InitializeComponent();
             this.tamanioDiscoTotal = tamanioDiscoDuro;//-- Asignamos cual sera el tamaño total del disco
             this.tamanioDiscoDisponible = tamanioDiscoTotal;//-- Al principio el espacion disponible es el mismo al de el total ya que aun no hay nada
@@ -55,11 +55,23 @@ namespace Interfaces
         {
             //--Enviara los datos al formularioDetalleArchivos
             DataGridViewRow row = DgvInfoParticiones.Rows[e.RowIndex];//-- Obtiene que fila fue pulsada
-           nombreParticion = DgvInfoParticiones.Rows[DgvInfoParticiones.CurrentRow.Index].Cells[0].Value.ToString();
-            FrmDetallesArchivos frm = new FrmDetallesArchivos();
+            nombreParticion = DgvInfoParticiones.Rows[DgvInfoParticiones.CurrentRow.Index].Cells[0].Value.ToString();
+            Particiones particion = ObtenerParticion(nombreParticion);
+            FrmDetallesArchivos frm = new FrmDetallesArchivos(particion);
             frm.Show();
         }
 
+        private Particiones ObtenerParticion(string nombre)//-- Metodo que me dira que aparticion es depediendo su nombre
+        {
+            for(int i = 0; i < listaParticiones.Count; i++)//-- da vueltas hasta que se acabe la lista
+            {
+                if (listaParticiones[i].Nombre == nombre)//-- revisa si el nombre esta en la lista
+                {
+                    return listaParticiones[i];//-- devuelve la particion escogida
+                }
+            }
+            return null;
+        }
         private void btnBorar_Click(object sender, EventArgs e)
         {
             //--Su funcion es para la particion que este seleccionada elimine completamente la columna
