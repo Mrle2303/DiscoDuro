@@ -20,23 +20,23 @@ namespace Interfaces
         {
             InitializeComponent();
             this.particion = particion;
-            archivos = new DataTable();
-            archivos.Columns.Add("Nombre del archivo");
-            archivos.Columns.Add("Tamaño del archivo");
+            archivos = new DataTable(); //se crea el objeto para manejar el datagridview
+            archivos.Columns.Add("Nombre del archivo"); //mediante el objeto se le añade columna al datagridview
+            archivos.Columns.Add("Tamaño del archivo"); //mediante el objeto se le añade columna al datagridview
 
-            dgvArchivos.DataSource=archivos;   
+            dgvArchivos.DataSource=archivos;  //le mandamos al datagridview la informacion de las columnas 
         }
         private void btnAñadir_Click(object sender, EventArgs e)
         {
-            DataRow row = archivos.NewRow();
+            DataRow row = archivos.NewRow(); //se crea el objeto row
 
-            row["Nombre del archivo"] = txtNombreAr.Text;
-            row["Tamaño del archivo"] = txtTamañoAr.Text;
+            row["Nombre del archivo"] = txtNombreAr.Text;//le establece la informacion a la fila tomandola del textbox
+            row["Tamaño del archivo"] = txtTamañoAr.Text;//le establece la informacion a la fila tomandola del textbox
 
-            archivos.Rows.Add(row);
+            archivos.Rows.Add(row); //se van añadiendo las filas con los datos introducidos
 
-            txtNombreAr.Text = "";
-            txtTamañoAr.Text = "";
+            txtNombreAr.Text = ""; //se limpian el textbox
+            txtTamañoAr.Text = ""; //se limpia el textbox
         }
 
         
