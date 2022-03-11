@@ -40,5 +40,7 @@ namespace Interfaces
             txtNombreAr.Text = "";
             txtTamañoAr.Text = "";
         }
+
+        
     }
 }
