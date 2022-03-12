@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
@@ -39,7 +39,6 @@
             this.txtTamañoAr = new System.Windows.Forms.TextBox();
             this.txtNombreAr = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.lblNombreParticion = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.dgvArchivos = new System.Windows.Forms.DataGridView();
@@ -126,6 +125,7 @@
             this.txtTamañoAr.Name = "txtTamañoAr";
             this.txtTamañoAr.Size = new System.Drawing.Size(100, 20);
             this.txtTamañoAr.TabIndex = 3;
+            this.txtTamañoAr.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTamañoAr_KeyPress_1);
             // 
             // txtNombreAr
             // 
@@ -133,6 +133,7 @@
             this.txtNombreAr.Name = "txtNombreAr";
             this.txtNombreAr.Size = new System.Drawing.Size(100, 20);
             this.txtNombreAr.TabIndex = 2;
+            this.txtNombreAr.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombreAr_KeyPress_1);
             // 
             // label4
             // 
@@ -145,18 +146,6 @@
             this.label4.Size = new System.Drawing.Size(116, 18);
             this.label4.TabIndex = 5;
             this.label4.Text = "Añadir archivos";
-            // 
-            // lblNombreParticion
-            // 
-            this.lblNombreParticion.AutoSize = true;
-            this.lblNombreParticion.BackColor = System.Drawing.Color.Transparent;
-            this.lblNombreParticion.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNombreParticion.ForeColor = System.Drawing.Color.White;
-            this.lblNombreParticion.Location = new System.Drawing.Point(325, 9);
-            this.lblNombreParticion.Name = "lblNombreParticion";
-            this.lblNombreParticion.Size = new System.Drawing.Size(109, 18);
-            this.lblNombreParticion.TabIndex = 6;
-            this.lblNombreParticion.Text = "Que disco es?";
             // 
             // label7
             // 
@@ -173,7 +162,6 @@
             // panel4
             // 
             this.panel4.Controls.Add(this.label4);
-            this.panel4.Controls.Add(this.lblNombreParticion);
             this.panel4.Location = new System.Drawing.Point(12, 51);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(437, 36);
@@ -189,14 +177,14 @@
             this.dgvArchivos.BackgroundColor = System.Drawing.Color.IndianRed;
             this.dgvArchivos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvArchivos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Firebrick;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Malgun Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkSalmon;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvArchivos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.Firebrick;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Malgun Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.DarkSalmon;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvArchivos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvArchivos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvArchivos.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dgvArchivos.EnableHeadersVisualStyles = false;
@@ -205,11 +193,11 @@
             this.dgvArchivos.Name = "dgvArchivos";
             this.dgvArchivos.ReadOnly = true;
             this.dgvArchivos.RowHeadersVisible = false;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.IndianRed;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Malgun Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DarkRed;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
-            this.dgvArchivos.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.IndianRed;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Malgun Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.DarkRed;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White;
+            this.dgvArchivos.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvArchivos.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvArchivos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvArchivos.Size = new System.Drawing.Size(449, 136);
@@ -217,11 +205,12 @@
             // 
             // btnBorrar
             // 
-            this.btnBorrar.Location = new System.Drawing.Point(386, 195);
+            this.btnBorrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBorrar.Location = new System.Drawing.Point(334, 187);
             this.btnBorrar.Name = "btnBorrar";
-            this.btnBorrar.Size = new System.Drawing.Size(75, 23);
+            this.btnBorrar.Size = new System.Drawing.Size(127, 31);
             this.btnBorrar.TabIndex = 11;
-            this.btnBorrar.Text = "Borrar";
+            this.btnBorrar.Text = "Borrar archivo";
             this.btnBorrar.UseVisualStyleBackColor = true;
             this.btnBorrar.Click += new System.EventHandler(this.btnBorrar_Click);
             // 
@@ -261,7 +250,6 @@
         private System.Windows.Forms.TextBox txtTamañoAr;
         private System.Windows.Forms.TextBox txtNombreAr;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label lblNombreParticion;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.DataGridView dgvArchivos;

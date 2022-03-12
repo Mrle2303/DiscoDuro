@@ -33,14 +33,19 @@ namespace Interfaces
             nombreArch = txtNombreAr.Text;//Se guarda el nombre del archivo obtenido del text box
             tamanioArch = int.Parse(txtTamañoAr.Text);
             Archivos archivo = new Archivos(nombreArch, tamanioArch);//se crea el objeto de la clase archivos
-            if(archivo.Tamanio < particion.TamanioDisponible)//Evaluar que el tamaño del archivo sea menos que el de la particion
+            if(archivo.Tamanio <= particion.TamanioDisponible)//Evaluar que el tamaño del archivo sea menos que el de la particion
             {
                 particion.AgregarArchivo(archivo);
                 row["Nombre del archivo"] = nombreArch;//le establece la informacion a la fila tomandola de la variable con el valor del textBox
-                row["Tamaño del archivo"] = tamanioArch;//le establece la informacion a la fila tomandola de la variable con el valor del textBox
+                row["Tamaño del archivo"] = tamanioArch + " MB";//le establece la informacion a la fila tomandola de la variable con el valor del textBox
                 archivos.Rows.Add(row); //se van añadiendo las filas con los datos introducidos
             }
-          
+            else//-- en caso de que el archivo no quepa
+            {
+                MessageBox.Show("No hay suficiente espacio\npara añadir mas archivos");
+                
+            }
+
             txtNombreAr.Text = ""; //se limpian el textbox
             txtTamañoAr.Text = ""; //se limpia el textbox
         }
@@ -49,6 +54,24 @@ namespace Interfaces
         {
             nombreArch = dgvArchivos.Rows[dgvArchivos.CurrentRow.Index].Cells[0].Value.ToString();//Se obtiene el nombre del archivo
             particion.EliminarArchivo(nombreArch);//Se elimina el archivo de la particion
+
+            dgvArchivos.Rows.Remove(dgvArchivos.CurrentRow);//borra el archivo selecionado en el datagrid
+        }
+
+        private void txtNombreAr_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar > 47 && e.KeyChar < 58) //valida que solo pueda introducir texto
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtTamañoAr_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar >= 32 && e.KeyChar <= 47) || (e.KeyChar >= 58 && e.KeyChar <= 255))//valida que solo pueda introducir numeros
+            {
+                e.Handled = true;
+            }
         }
     }
 }
