@@ -14,33 +14,40 @@ namespace Interfaces
 {
     public partial class FrmDetallesParticiones : Form
     {
-        DiscoDuro disco;
+        DiscoDuro disco;//-- Guardara la informacion del DD
         private string nombreParticion;//-- guardara el nombre de la particion que se va añadir
         private int tamanioParticion;//-- guardara el tamaño de la particion que se va añadir
         //----------------------- CONSTRUCTOR ---------------------------
-        public FrmDetallesParticiones(int tamanioDiscoDuro)
+        public FrmDetallesParticiones(int tamanioDiscoDuro)//-- Constructor que tiene info del DD
         {
             InitializeComponent();
-            disco = new DiscoDuro(tamanioDiscoDuro);
+            disco = new DiscoDuro(tamanioDiscoDuro);//-- Creamos el disco duro
         }
         //---------------------- METODOS -----------------------------------------------------
         private void btnAñadir_Click(object sender, EventArgs e)//-- Metodo al hacer clic sobre el boton añadir
         {
-            tamanioParticion = int.Parse(TxtTamanioP.Text);//-- Guarda el tamaño de la particion que añadira el usuario
-            if (tamanioParticion <= disco.TamanioDiscoDisponible && tamanioParticion > 0)//-- Verifica si hay espacio disponible en el DD para añadir particion
+            nombreParticion = TxtNombreP.Text;
+            if (!disco.VerificarNombreParticion(nombreParticion))// si no esta en la particion que se meta al bloque
             {
-                nombreParticion = TxtNombreP.Text;
-                Particiones particion = new Particiones(tamanioParticion, nombreParticion);//-- Creamos la particion y por medio del constructor pasamos la info
-                disco.AsignarParticion(particion);//-- Añadimos la particion a la lista
-                int n = DgvInfoParticiones.Rows.Add();//--Se adicionan nuevo renglones y cuento en cual voy
-                DgvInfoParticiones.Rows[n].Cells[0].Value = particion.Nombre;//--Coloca la informacion de la particion
-                DgvInfoParticiones.Rows[n].Cells[1].Value = particion.Tamanio+" MB";//Coloca la informacion del tamaño
-                LimpiarTexto();
+                tamanioParticion = int.Parse(TxtTamanioP.Text);//-- Guarda el tamaño de la particion que añadira el usuario
+                if (tamanioParticion <= disco.TamanioDiscoDisponible && tamanioParticion > 0)//-- Verifica si hay espacio disponible en el DD para añadir particion
+                {
+                    Particiones particion = new Particiones(tamanioParticion, nombreParticion);//-- Creamos la particion y por medio del constructor pasamos la info
+                    disco.AsignarParticion(particion);//-- Añadimos la particion a la lista
+                    int n = DgvInfoParticiones.Rows.Add();//--Se adicionan nuevo renglones y cuento en cual voy
+                    DgvInfoParticiones.Rows[n].Cells[0].Value = particion.Nombre;//--Coloca la informacion de la particion
+                    DgvInfoParticiones.Rows[n].Cells[1].Value = particion.Tamanio + " MB";//Coloca la informacion del tamaño
+                    LimpiarTexto();
+                }
+                else//-- en caso de que el archivo no quepa
+                {
+                    MessageBox.Show("No hay suficiente espacio\npara añadir la particion");
+                    LimpiarTexto();
+                }
             }
-            else//-- en caso de que el archivo no quepa
+            else
             {
-                MessageBox.Show("No hay suficiente espacio\npara añadir la particion");
-                LimpiarTexto();
+                MessageBox.Show("Ya existe una particion con este nombre");
             }
         }
         private void LimpiarTexto()//----- Para limpiar los textos
@@ -51,30 +58,25 @@ namespace Interfaces
 
         private void DgvInfoParticiones_CellDoubleClick(object sender, DataGridViewCellEventArgs e)//--Enviara los datos al formularioDetalleArchivos
         {
-            nombreParticion = DgvInfoParticiones.Rows[DgvInfoParticiones.CurrentRow.Index].Cells[0].Value.ToString();
-            Particiones particion = disco.ObtenerParticion(nombreParticion);
-            Console.WriteLine(particion.Nombre);//---------- Linea de prueba
-
-            FrmDetallesArchivos frm = new FrmDetallesArchivos(particion);
-            frm.Show();
+            nombreParticion = DgvInfoParticiones.Rows[DgvInfoParticiones.CurrentRow.Index].Cells[0].Value.ToString();//--Obtenemos el nombre de la fila seleccionada
+            Particiones particion = disco.ObtenerParticion(nombreParticion);//-- Obtenemos de que partciones se trata
+            FrmDetallesArchivos frm = new FrmDetallesArchivos(particion);//-- Mandamos la particion a su frm para que la trabaje
+            frm.Show();//-- se muestra el frm
         }
         private void btnBorar_Click(object sender, EventArgs e)
         {
-            nombreParticion = DgvInfoParticiones.Rows[DgvInfoParticiones.CurrentRow.Index].Cells[0].Value.ToString();
-            DgvInfoParticiones.Rows.Remove(DgvInfoParticiones.CurrentRow);//--Su funcion es para la particion que este seleccionada elimine completamente la columna
-            disco.BorrarParticiones(nombreParticion);
+            if(DgvInfoParticiones.CurrentRow != null)
+            {
+                nombreParticion = DgvInfoParticiones.Rows[DgvInfoParticiones.CurrentRow.Index].Cells[0].Value.ToString();//--Obtenemos el nombre de la fila seleccionada
+                DgvInfoParticiones.Rows.Remove(DgvInfoParticiones.CurrentRow);//--Su funcion es para la particion que este seleccionada elimine completamente la columna
+                disco.BorrarParticiones(nombreParticion);//-- Borra la particion del disco duro
+            }
         }
-
-        private void FrmDetallesParticiones_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void TxtTamanioP_KeyPress(object sender, KeyPressEventArgs e)
         {
             if ((e.KeyChar >= 32 && e.KeyChar <= 47) || (e.KeyChar >= 58 && e.KeyChar <= 255))//--Es la validacion para solo insertar  numeros
             {
-                e.Handled = true;
+                e.Handled = true;//-- Decimos que si se controlo el evento
             }
         }
 
@@ -82,8 +84,13 @@ namespace Interfaces
         {
             if (e.KeyChar > 47 && e.KeyChar <58)//--Es la validacion para solo insertar  letras
             {
-                e.Handled = true;
+                e.Handled = true;//-- Decimos que si se controlo el evento
             }
+        }
+
+        private void FrmDetallesParticiones_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

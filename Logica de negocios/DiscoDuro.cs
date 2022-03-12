@@ -16,14 +16,14 @@ namespace Logica_de_negocios
         public DiscoDuro(int tamanio)
         {
             listaParticiones = new List<Particiones>();//-- Se instancia el objeto de la lista donde estara las particiones
-            this.TamanioDiscoTotal = tamanio;
-            this.tamanioDiscoDisponible = TamanioDiscoTotal;
+            this.TamanioDiscoTotal = tamanio;//-- Asignamos el tamaño del disco duro
+            this.tamanioDiscoDisponible = TamanioDiscoTotal;//-- Al inicio el tamaño disponible sera igual al tamaño total
         }
         //------------------- PROPIEDADES ---------------------------------------------------
         public int TamanioDiscoTotal { get => tamanioDiscoTotal;
             set
             {
-                if (value > 0)
+                if (value > 0)//-- Para asignarse tiene que ser mayor a 0
                 {
                     this.tamanioDiscoTotal = value;
                 }
@@ -47,14 +47,26 @@ namespace Logica_de_negocios
             }
             return null;//--- EN caso de que no devuelva un nulo
         }
+        public bool VerificarNombreParticion(string nombreParticion)//--- vreifica si hay alguna particion con ese nombre
+        {
+            for(int i = 0; i < listaParticiones.Count; i++)//--Recorre toda la lista 
+            {
+                if (listaParticiones[i].Nombre == nombreParticion)//-- Verifica si el nombre mandado existe en la lista
+                {
+                    return true;// regresa verdadero si es que existe
+                }
+            }
+            return false;//-- si no regresa falso
+        }
         public bool BorrarParticiones(string nombre)//-- Metodo para  borrar las particiones
         {
             for (int i = 0; i < listaParticiones.Count; i++)//-- da vueltas hasta que se acabe la lista
             {
                 if (listaParticiones[i].Nombre == nombre)//-- revisa si el nombre esta en la lista
                 {
-                    listaParticiones.RemoveAt(i);
-                    return true;
+                    tamanioDiscoDisponible += listaParticiones[i].Tamanio;//-- Aumenta el valor disponible ya que no estara esa particion
+                    listaParticiones.RemoveAt(i);//-- quita la particion de la lista
+                    return true;//-- regresa un verdadero debido a que si se pudo completar la operacion
                 }
             }
             return false;

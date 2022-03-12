@@ -54,15 +54,27 @@ namespace Logica_de_negocios
         }
         public bool EliminarArchivo(string nombreArchivo)//-- Es metodo lo ejecutaras cuando quieras elimanar un archivo dentro de la particion
         {
-            for (int i = 0; i < listaArchivos.Count; i++)
+            for (int i = 0; i < listaArchivos.Count; i++)//-- Recorre toda la lista de archivos
             {
-                if (listaArchivos[i].Nombre == nombreArchivo)
+                if (listaArchivos[i].Nombre == nombreArchivo)//-- verifica si el nombre coincide con alguno de la lista
                 {
-                    listaArchivos.RemoveAt(i);
-                    return true;
+                    tamanioDisponible += listaArchivos[i].Tamanio;//-- aumenta el tamaño disponible
+                    listaArchivos.RemoveAt(i);//-- quita el archivo de la lista
+                    return true;//-- indica que si se realizo la operacion
                 }   
             }
             return false;
+        }
+        public bool VerificaNombreArchivo(string nombreArchivo)// Verifica si ese nombre ya existe
+        {
+            for(int i = 0; i < listaArchivos.Count; i++)//-- recorre toda la lista
+            {
+                if(listaArchivos[i].Nombre == nombreArchivo)//-- verifica si algun elemento coincide con la lista
+                {
+                    return true;// regresa true porque si hay un archivo que se llama igual
+                }
+            }
+            return false;//-- regresa falso porque no hay un archivo que se llame asi
         }
         public List<Archivos> ObtenerListaDeArchivos()//-- Este metodo regresa la lista de archivos que tiene esta particion
         {

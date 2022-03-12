@@ -8,19 +8,21 @@ namespace Logica_de_negocios
 {
     public class Archivos : Metodos
     {
+        //---------------------------- ATRIBUTOS -----------------------------------
         private string nombre;
         private int tamanio;
-
-        public Archivos(string nombre, int tamanio)
+        //---------------------------- CONSTRUCTOR ----------------------------------
+        public Archivos(string nombre, int tamanio)//--------------- Cuando se cree va a pedir los datos iniciales del archivo
         {
             this.nombre = nombre;
             this.tamanio = tamanio;
         }
+        //--------------------------- PROPIEDADES -----------------------------------
         public string Nombre
         {
             set
             {
-                if (IsLetters(value))
+                if (IsLetters(value))//---- Verifica que sean solo letras
                 {
                     nombre = value;
                 }

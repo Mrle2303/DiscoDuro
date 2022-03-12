@@ -24,6 +24,7 @@ namespace Interfaces
 
             int tamanioDiscoDuro = int.Parse(txtTamaño.Text);
             FrmDetallesParticiones frm = new FrmDetallesParticiones(tamanioDiscoDuro);
+            this.Hide();
             frm.Show();
         }
 
