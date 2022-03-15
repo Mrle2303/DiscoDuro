@@ -21,11 +21,13 @@ namespace Interfaces
 
         private void btnEmpezar_Click(object sender, EventArgs e)
         {
-
-            int tamanioDiscoDuro = int.Parse(txtTamaño.Text);
-            FrmDetallesParticiones frm = new FrmDetallesParticiones(tamanioDiscoDuro);
-            this.Hide();
-            frm.Show();
+            if(txtTamaño.Text != "")
+            {
+                int tamanioDiscoDuro = int.Parse(txtTamaño.Text);
+                FrmDetallesParticiones frm = new FrmDetallesParticiones(tamanioDiscoDuro);
+                this.Hide();
+                frm.Show();
+            }
         }
 
         private void txtTamaño_KeyPress(object sender, KeyPressEventArgs e)

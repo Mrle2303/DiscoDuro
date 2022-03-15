@@ -8,6 +8,7 @@ namespace Logica_de_negocios
 {
     public class Metodos
     {
+        // Validar que sean letras
        public static bool IsLetters(string letra)
         {
             foreach (Char ch in letra)

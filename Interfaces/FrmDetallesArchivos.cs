@@ -41,25 +41,29 @@ namespace Interfaces
         }
         private void btnAñadir_Click(object sender, EventArgs e)
         {
-            DataRow row = archivos.NewRow(); //se crea el objeto row para que agregue filas
-            nombreArch = txtNombreAr.Text;//Se guarda el nombre del archivo obtenido del text box
-            tamanioArch = int.Parse(txtTamañoAr.Text);
-            Archivos archivo = new Archivos(nombreArch, tamanioArch);//se crea el objeto de la clase archivos
-            if(archivo.Tamanio <= particion.TamanioDisponible)//Evaluar que el tamaño del archivo sea menos que el de la particion
+            if(txtNombreAr.Text != "" && txtTamañoAr.Text != "")
             {
-                particion.AgregarArchivo(archivo);
-                row["Nombre del archivo"] = archivo.Nombre;//le establece la informacion a la fila tomandola de la variable con el valor del textBox
-                row["Tamaño del archivo"] = archivo.Tamanio + " MB";//le establece la informacion a la fila tomandola de la variable con el valor del textBox
-                archivos.Rows.Add(row); //se van añadiendo las filas con los datos introducidos
-            }
-            else//-- en caso de que el archivo no quepa
-            {
-                MessageBox.Show("No hay suficiente espacio\npara añadir mas archivos");
-                
-            }
+                DataRow row = archivos.NewRow(); //se crea el objeto row para que agregue filas
+                nombreArch = txtNombreAr.Text;//Se guarda el nombre del archivo obtenido del text box
+                tamanioArch = int.Parse(txtTamañoAr.Text);
+                Archivos archivo = new Archivos(nombreArch, tamanioArch);//se crea el objeto de la clase archivos
+                if (archivo.Tamanio <= particion.TamanioDisponible)//Evaluar que el tamaño del archivo sea menos que el de la particion
+                {
+                    particion.AgregarArchivo(archivo);
+                    row["Nombre del archivo"] = archivo.Nombre;//le establece la informacion a la fila tomandola de la variable con el valor del textBox
+                    row["Tamaño del archivo"] = archivo.Tamanio + " MB";//le establece la informacion a la fila tomandola de la variable con el valor del textBox
+                    archivos.Rows.Add(row); //se van añadiendo las filas con los datos introducidos
+                }
+                else//-- en caso de que el archivo no quepa
+                {
+                    MessageBox.Show("No hay suficiente espacio\npara añadir mas archivos");
 
-            txtNombreAr.Text = ""; //se limpian el textbox
-            txtTamañoAr.Text = ""; //se limpia el textbox
+                }
+
+                txtNombreAr.Text = ""; //se limpian el textbox
+                txtTamañoAr.Text = ""; //se limpia el textbox
+            }
+            
         }
 
         private void btnBorrar_Click(object sender, EventArgs e)

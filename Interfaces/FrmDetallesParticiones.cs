@@ -26,29 +26,33 @@ namespace Interfaces
         //---------------------- METODOS -----------------------------------------------------
         private void btnAñadir_Click(object sender, EventArgs e)//-- Metodo al hacer clic sobre el boton añadir
         {
-            nombreParticion = TxtNombreP.Text;
-            if (!disco.VerificarNombreParticion(nombreParticion))// si no esta en la particion que se meta al bloque
+            if(TxtNombreP.Text != "" && TxtTamanioP.Text != "")
             {
-                tamanioParticion = int.Parse(TxtTamanioP.Text);//-- Guarda el tamaño de la particion que añadira el usuario
-                if (tamanioParticion <= disco.TamanioDiscoDisponible && tamanioParticion > 0)//-- Verifica si hay espacio disponible en el DD para añadir particion
+                nombreParticion = TxtNombreP.Text;
+                if (!disco.VerificarNombreParticion(nombreParticion))// si no esta en la particion que se meta al bloque
                 {
-                    Particiones particion = new Particiones(tamanioParticion, nombreParticion);//-- Creamos la particion y por medio del constructor pasamos la info
-                    disco.AsignarParticion(particion);//-- Añadimos la particion a la lista
-                    int n = DgvInfoParticiones.Rows.Add();//--Se adicionan nuevo renglones y cuento en cual voy
-                    DgvInfoParticiones.Rows[n].Cells[0].Value = particion.Nombre;//--Coloca la informacion de la particion
-                    DgvInfoParticiones.Rows[n].Cells[1].Value = particion.Tamanio + " MB";//Coloca la informacion del tamaño
-                    LimpiarTexto();
+                    tamanioParticion = int.Parse(TxtTamanioP.Text);//-- Guarda el tamaño de la particion que añadira el usuario
+                    if (tamanioParticion <= disco.TamanioDiscoDisponible && tamanioParticion > 0)//-- Verifica si hay espacio disponible en el DD para añadir particion
+                    {
+                        Particiones particion = new Particiones(tamanioParticion, nombreParticion);//-- Creamos la particion y por medio del constructor pasamos la info
+                        disco.AsignarParticion(particion);//-- Añadimos la particion a la lista
+                        int n = DgvInfoParticiones.Rows.Add();//--Se adicionan nuevo renglones y cuento en cual voy
+                        DgvInfoParticiones.Rows[n].Cells[0].Value = particion.Nombre;//--Coloca la informacion de la particion
+                        DgvInfoParticiones.Rows[n].Cells[1].Value = particion.Tamanio + " MB";//Coloca la informacion del tamaño
+                        LimpiarTexto();
+                    }
+                    else//-- en caso de que el archivo no quepa
+                    {
+                        MessageBox.Show("No hay suficiente espacio\npara añadir la particion");
+                        LimpiarTexto();
+                    }
                 }
-                else//-- en caso de que el archivo no quepa
+                else
                 {
-                    MessageBox.Show("No hay suficiente espacio\npara añadir la particion");
-                    LimpiarTexto();
+                    MessageBox.Show("Ya existe una particion con este nombre");
                 }
             }
-            else
-            {
-                MessageBox.Show("Ya existe una particion con este nombre");
-            }
+           
         }
         private void LimpiarTexto()//----- Para limpiar los textos
         {
