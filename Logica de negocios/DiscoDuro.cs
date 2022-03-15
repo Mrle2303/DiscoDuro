@@ -47,7 +47,7 @@ namespace Logica_de_negocios
             }
             return null;//--- EN caso de que no devuelva un nulo
         }
-        public bool VerificarNombreParticion(string nombreParticion)//--- vreifica si hay alguna particion con ese nombre
+        public bool VerificarNombreParticion(string nombreParticion)//--- verifica si hay alguna particion con ese nombre
         {
             for(int i = 0; i < listaParticiones.Count; i++)//--Recorre toda la lista 
             {
