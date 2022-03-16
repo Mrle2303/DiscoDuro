@@ -235,7 +235,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "FrmDetallesParticiones";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "FrmTamanos";
+            this.Text = "Particiones";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmDetallesParticiones_FormClosing);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

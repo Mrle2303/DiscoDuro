@@ -101,7 +101,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "FrmInicio";
-            this.Text = "Disco Duro";
+            this.Text = "Form1";
             this.ResumeLayout(false);
             this.PerformLayout();
 
