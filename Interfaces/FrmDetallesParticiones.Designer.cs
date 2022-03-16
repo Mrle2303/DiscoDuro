@@ -122,9 +122,9 @@
             this.btnAñadir.BackColor = System.Drawing.Color.Transparent;
             this.btnAñadir.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnAñadir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.btnAñadir.Location = new System.Drawing.Point(78, 131);
+            this.btnAñadir.Location = new System.Drawing.Point(26, 135);
             this.btnAñadir.Name = "btnAñadir";
-            this.btnAñadir.Size = new System.Drawing.Size(78, 27);
+            this.btnAñadir.Size = new System.Drawing.Size(78, 23);
             this.btnAñadir.TabIndex = 3;
             this.btnAñadir.Text = "Añadir ";
             this.btnAñadir.UseVisualStyleBackColor = false;
@@ -213,7 +213,7 @@
             // 
             // btnBorar
             // 
-            this.btnBorar.Location = new System.Drawing.Point(328, 186);
+            this.btnBorar.Location = new System.Drawing.Point(144, 135);
             this.btnBorar.Name = "btnBorar";
             this.btnBorar.Size = new System.Drawing.Size(75, 23);
             this.btnBorar.TabIndex = 6;
