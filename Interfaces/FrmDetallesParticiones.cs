@@ -39,6 +39,7 @@ namespace Interfaces
                         int n = DgvInfoParticiones.Rows.Add();//--Se adicionan nuevo renglones y cuento en cual voy
                         DgvInfoParticiones.Rows[n].Cells[0].Value = particion.Nombre;//--Coloca la informacion de la particion
                         DgvInfoParticiones.Rows[n].Cells[1].Value = particion.Tamanio + " MB";//Coloca la informacion del tamaño
+                        DgvInfoParticiones.Rows[n].Cells[2].Value = (particion.TamanioDisponible*100)/particion.Tamanio;
                         LimpiarTexto();
                     }
                     else//-- en caso de que el archivo no quepa
@@ -64,7 +65,7 @@ namespace Interfaces
         {
             nombreParticion = DgvInfoParticiones.Rows[DgvInfoParticiones.CurrentRow.Index].Cells[0].Value.ToString();//--Obtenemos el nombre de la fila seleccionada
             Particiones particion = disco.ObtenerParticion(nombreParticion);//-- Obtenemos de que partciones se trata
-            FrmDetallesArchivos frm = new FrmDetallesArchivos(particion);//-- Mandamos la particion a su frm para que la trabaje
+            FrmDetallesArchivos frm = new FrmDetallesArchivos(particion,this);//-- Mandamos la particion a su frm para que la trabaje
             frm.Show();//-- se muestra el frm
         }
         private void btnBorar_Click(object sender, EventArgs e)
@@ -92,6 +93,11 @@ namespace Interfaces
             }
         }
 
+        public void RefrescarDatos(Particiones particion)
+        {
+            int index = DgvInfoParticiones.Rows[DgvInfoParticiones.CurrentRow.Index].Index;
+            DgvInfoParticiones.Rows[index].Cells[2].Value = (particion.TamanioDisponible * 100) / particion.Tamanio;
+        }
         private void FrmDetallesParticiones_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();

@@ -18,10 +18,12 @@ namespace Interfaces
         private DataTable archivos;
         private Particiones particion;
         private List<Archivos> listaArchivos;
-        public FrmDetallesArchivos(Particiones particion)
+        private FrmDetallesParticiones frmDetallesParticiones;
+        public FrmDetallesArchivos(Particiones particion, FrmDetallesParticiones frmDetallesParticiones)
         {
             InitializeComponent();
             this.particion = particion;
+            this.frmDetallesParticiones = frmDetallesParticiones;
             archivos = new DataTable(); //se crea el objeto para manejar el datagridview
             archivos.Columns.Add("Nombre del archivo"); //mediante el objeto se le añade columna al datagridview
             archivos.Columns.Add("Tamaño del archivo"); //mediante el objeto se le añade columna al datagridview
@@ -53,6 +55,7 @@ namespace Interfaces
                     row["Nombre del archivo"] = archivo.Nombre;//le establece la informacion a la fila tomandola de la variable con el valor del textBox
                     row["Tamaño del archivo"] = archivo.Tamanio + " MB";//le establece la informacion a la fila tomandola de la variable con el valor del textBox
                     archivos.Rows.Add(row); //se van añadiendo las filas con los datos introducidos
+                    frmDetallesParticiones.RefrescarDatos(particion);//-- Actualñiza el campo grafico
                 }
                 else//-- en caso de que el archivo no quepa
                 {
@@ -73,6 +76,7 @@ namespace Interfaces
                 nombreArch = dgvArchivos.Rows[dgvArchivos.CurrentRow.Index].Cells[0].Value.ToString();//Se obtiene el nombre del archivo
                 particion.EliminarArchivo(nombreArch);//Se elimina el archivo de la particion
                 dgvArchivos.Rows.Remove(dgvArchivos.CurrentRow);//borra el archivo selecionado en el datagrid
+                frmDetallesParticiones.RefrescarDatos(particion);//-- Actualñiza el campo grafico
             }
         }
 

@@ -45,6 +45,7 @@
             this.NombreP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TamañoP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnBorar = new System.Windows.Forms.Button();
+            this.disponible = new Logica_de_negocios.DataGridViewProgressColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvInfoParticiones)).BeginInit();
             this.SuspendLayout();
@@ -122,9 +123,9 @@
             this.btnAñadir.BackColor = System.Drawing.Color.Transparent;
             this.btnAñadir.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnAñadir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.btnAñadir.Location = new System.Drawing.Point(78, 131);
+            this.btnAñadir.Location = new System.Drawing.Point(29, 154);
             this.btnAñadir.Name = "btnAñadir";
-            this.btnAñadir.Size = new System.Drawing.Size(78, 27);
+            this.btnAñadir.Size = new System.Drawing.Size(78, 23);
             this.btnAñadir.TabIndex = 3;
             this.btnAñadir.Text = "Añadir ";
             this.btnAñadir.UseVisualStyleBackColor = false;
@@ -161,7 +162,8 @@
             this.DgvInfoParticiones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DgvInfoParticiones.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.NombreP,
-            this.TamañoP});
+            this.TamañoP,
+            this.disponible});
             this.DgvInfoParticiones.Cursor = System.Windows.Forms.Cursors.Hand;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
@@ -193,7 +195,7 @@
             this.DgvInfoParticiones.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.DgvInfoParticiones.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.DgvInfoParticiones.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DgvInfoParticiones.Size = new System.Drawing.Size(243, 150);
+            this.DgvInfoParticiones.Size = new System.Drawing.Size(342, 207);
             this.DgvInfoParticiones.TabIndex = 5;
             this.DgvInfoParticiones.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvInfoParticiones_CellDoubleClick);
             // 
@@ -213,7 +215,7 @@
             // 
             // btnBorar
             // 
-            this.btnBorar.Location = new System.Drawing.Point(328, 186);
+            this.btnBorar.Location = new System.Drawing.Point(144, 154);
             this.btnBorar.Name = "btnBorar";
             this.btnBorar.Size = new System.Drawing.Size(75, 23);
             this.btnBorar.TabIndex = 6;
@@ -221,12 +223,18 @@
             this.btnBorar.UseVisualStyleBackColor = true;
             this.btnBorar.Click += new System.EventHandler(this.btnBorar_Click);
             // 
+            // disponible
+            // 
+            this.disponible.HeaderText = "Disponible";
+            this.disponible.Name = "disponible";
+            this.disponible.ReadOnly = true;
+            // 
             // FrmDetallesParticiones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Brown;
-            this.ClientSize = new System.Drawing.Size(520, 221);
+            this.ClientSize = new System.Drawing.Size(614, 248);
             this.Controls.Add(this.btnBorar);
             this.Controls.Add(this.DgvInfoParticiones);
             this.Controls.Add(this.label4);
@@ -257,8 +265,9 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.DataGridView DgvInfoParticiones;
+        private System.Windows.Forms.Button btnBorar;
         private System.Windows.Forms.DataGridViewTextBoxColumn NombreP;
         private System.Windows.Forms.DataGridViewTextBoxColumn TamañoP;
-        private System.Windows.Forms.Button btnBorar;
+        private Logica_de_negocios.DataGridViewProgressColumn disponible;
     }
 }
