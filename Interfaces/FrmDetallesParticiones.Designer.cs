@@ -44,8 +44,8 @@
             this.DgvInfoParticiones = new System.Windows.Forms.DataGridView();
             this.NombreP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TamañoP = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnBorar = new System.Windows.Forms.Button();
             this.disponible = new Logica_de_negocios.DataGridViewProgressColumn();
+            this.btnBorar = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvInfoParticiones)).BeginInit();
             this.SuspendLayout();
@@ -213,6 +213,12 @@
             this.TamañoP.ReadOnly = true;
             this.TamañoP.Width = 121;
             // 
+            // disponible
+            // 
+            this.disponible.HeaderText = "Disponible";
+            this.disponible.Name = "disponible";
+            this.disponible.ReadOnly = true;
+            // 
             // btnBorar
             // 
             this.btnBorar.Location = new System.Drawing.Point(144, 154);
@@ -222,12 +228,6 @@
             this.btnBorar.Text = "Borar";
             this.btnBorar.UseVisualStyleBackColor = true;
             this.btnBorar.Click += new System.EventHandler(this.btnBorar_Click);
-            // 
-            // disponible
-            // 
-            this.disponible.HeaderText = "Disponible";
-            this.disponible.Name = "disponible";
-            this.disponible.ReadOnly = true;
             // 
             // FrmDetallesParticiones
             // 
@@ -243,7 +243,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "FrmDetallesParticiones";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "FrmTamanos";
+            this.Text = "Particiones";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmDetallesParticiones_FormClosing);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
