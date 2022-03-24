@@ -175,7 +175,7 @@
             this.dgvArchivos.AllowUserToResizeColumns = false;
             this.dgvArchivos.AllowUserToResizeRows = false;
             this.dgvArchivos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvArchivos.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(143)))), ((int)(((byte)(175)))));
+            this.dgvArchivos.BackgroundColor = System.Drawing.Color.Azure;
             this.dgvArchivos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvArchivos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvArchivos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
