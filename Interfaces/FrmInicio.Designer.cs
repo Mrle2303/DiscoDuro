@@ -70,6 +70,8 @@
             // 
             // btnEmpezar
             // 
+            this.btnEmpezar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEmpezar.ForeColor = System.Drawing.Color.White;
             this.btnEmpezar.Location = new System.Drawing.Point(269, 183);
             this.btnEmpezar.Name = "btnEmpezar";
             this.btnEmpezar.Size = new System.Drawing.Size(75, 23);
@@ -92,7 +94,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Brown;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(143)))), ((int)(((byte)(175)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(362, 217);
             this.Controls.Add(this.label3);
