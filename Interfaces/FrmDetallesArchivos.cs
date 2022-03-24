@@ -23,6 +23,7 @@ namespace Interfaces
         {
             InitializeComponent();
             this.particion = particion;
+            this.Text = particion.Nombre;
             this.frmDetallesParticiones = frmDetallesParticiones;
             archivos = new DataTable(); //se crea el objeto para manejar el datagridview
             archivos.Columns.Add("Nombre del archivo"); //mediante el objeto se le añade columna al datagridview
