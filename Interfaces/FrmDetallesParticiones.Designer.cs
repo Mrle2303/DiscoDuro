@@ -123,6 +123,8 @@
             this.btnAñadir.BackColor = System.Drawing.Color.Transparent;
             this.btnAñadir.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnAñadir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.btnAñadir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAñadir.ForeColor = System.Drawing.Color.White;
             this.btnAñadir.Location = new System.Drawing.Point(29, 154);
             this.btnAñadir.Name = "btnAñadir";
             this.btnAñadir.Size = new System.Drawing.Size(78, 23);
@@ -147,15 +149,15 @@
             this.DgvInfoParticiones.AllowUserToDeleteRows = false;
             this.DgvInfoParticiones.AllowUserToResizeColumns = false;
             this.DgvInfoParticiones.AllowUserToResizeRows = false;
-            this.DgvInfoParticiones.BackgroundColor = System.Drawing.Color.IndianRed;
+            this.DgvInfoParticiones.BackgroundColor = System.Drawing.Color.Azure;
             this.DgvInfoParticiones.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.DgvInfoParticiones.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.DgvInfoParticiones.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Firebrick;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(73)))), ((int)(((byte)(124)))));
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkSalmon;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(73)))), ((int)(((byte)(124)))));
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.DgvInfoParticiones.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
@@ -174,7 +176,7 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.DgvInfoParticiones.DefaultCellStyle = dataGridViewCellStyle2;
             this.DgvInfoParticiones.EnableHeadersVisualStyles = false;
-            this.DgvInfoParticiones.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.DgvInfoParticiones.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(165)))), ((int)(((byte)(194)))));
             this.DgvInfoParticiones.Location = new System.Drawing.Point(244, 29);
             this.DgvInfoParticiones.Name = "DgvInfoParticiones";
             this.DgvInfoParticiones.ReadOnly = true;
@@ -188,9 +190,9 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.DgvInfoParticiones.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.DgvInfoParticiones.RowHeadersVisible = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.IndianRed;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(123)))), ((int)(((byte)(157)))));
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Malgun Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DarkRed;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(117)))), ((int)(((byte)(159)))));
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
             this.DgvInfoParticiones.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.DgvInfoParticiones.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -221,6 +223,9 @@
             // 
             // btnBorar
             // 
+            this.btnBorar.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnBorar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBorar.ForeColor = System.Drawing.Color.White;
             this.btnBorar.Location = new System.Drawing.Point(144, 154);
             this.btnBorar.Name = "btnBorar";
             this.btnBorar.Size = new System.Drawing.Size(75, 23);
@@ -233,7 +238,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Brown;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(143)))), ((int)(((byte)(175)))));
             this.ClientSize = new System.Drawing.Size(614, 248);
             this.Controls.Add(this.btnBorar);
             this.Controls.Add(this.DgvInfoParticiones);
