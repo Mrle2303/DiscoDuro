@@ -123,13 +123,13 @@
             this.btnAñadir.BackColor = System.Drawing.Color.Transparent;
             this.btnAñadir.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnAñadir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-<<<<<<< HEAD
+
             this.btnAñadir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAñadir.ForeColor = System.Drawing.Color.White;
             this.btnAñadir.Location = new System.Drawing.Point(26, 135);
-=======
+
             this.btnAñadir.Location = new System.Drawing.Point(29, 154);
->>>>>>> a28aae5620ee155ca80cbc9f201ebbe3ded9013e
+
             this.btnAñadir.Name = "btnAñadir";
             this.btnAñadir.Size = new System.Drawing.Size(78, 23);
             this.btnAñadir.TabIndex = 3;
@@ -201,11 +201,11 @@
             this.DgvInfoParticiones.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.DgvInfoParticiones.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.DgvInfoParticiones.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-<<<<<<< HEAD
+
             this.DgvInfoParticiones.Size = new System.Drawing.Size(242, 150);
-=======
+
             this.DgvInfoParticiones.Size = new System.Drawing.Size(342, 207);
->>>>>>> a28aae5620ee155ca80cbc9f201ebbe3ded9013e
+
             this.DgvInfoParticiones.TabIndex = 5;
             this.DgvInfoParticiones.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvInfoParticiones_CellDoubleClick);
             // 
@@ -225,14 +225,14 @@
             // 
             // btnBorar
             // 
-<<<<<<< HEAD
+
             this.btnBorar.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnBorar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBorar.ForeColor = System.Drawing.Color.White;
             this.btnBorar.Location = new System.Drawing.Point(144, 135);
-=======
+
             this.btnBorar.Location = new System.Drawing.Point(144, 154);
->>>>>>> a28aae5620ee155ca80cbc9f201ebbe3ded9013e
+
             this.btnBorar.Name = "btnBorar";
             this.btnBorar.Size = new System.Drawing.Size(75, 23);
             this.btnBorar.TabIndex = 6;
@@ -250,13 +250,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-<<<<<<< HEAD
+
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(143)))), ((int)(((byte)(175)))));
             this.ClientSize = new System.Drawing.Size(520, 221);
-=======
+
             this.BackColor = System.Drawing.Color.Brown;
             this.ClientSize = new System.Drawing.Size(614, 248);
->>>>>>> a28aae5620ee155ca80cbc9f201ebbe3ded9013e
+
             this.Controls.Add(this.btnBorar);
             this.Controls.Add(this.DgvInfoParticiones);
             this.Controls.Add(this.label4);
